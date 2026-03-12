@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eve AI Products — 第一個中文 OpenClaw 產品線</title>
+<meta name="description" content="專為中文用戶打造的 OpenClaw AI 助手產品。設定指南、生產級 Persona、行業 Skill Packs。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0f1e;--bg2:#111827;--bg3:#1a2332;--blue:#3b82f6;--blue2:#60a5fa;--cyan:#06b6d4;--white:#f8fafc;--gray:#94a3b8;--gray2:#64748b;--green:#10b981;--purple:#8b5cf6;--gold:#f59e0b;--radius:12px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans TC',sans-serif;background:var(--bg);color:var(--white);line-height:1.7;overflow-x:hidden}
+a{color:var(--blue2);text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,15,30,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(59,130,246,.1);padding:16px 0}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:1.25rem;font-weight:700;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--gray);font-size:.9rem;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.menu-btn{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer}
+
+/* HERO */
+.hero{padding:160px 0 100px;text-align:center;position:relative}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(59,130,246,.15),transparent 70%);pointer-events:none}
+.hero-badge{display:inline-block;padding:6px 16px;border-radius:20px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);color:var(--blue2);font-size:.85rem;margin-bottom:24px}
+.hero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;line-height:1.2;margin-bottom:20px}
+.hero h1 .gradient{background:linear-gradient(135deg,var(--blue),var(--cyan),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:1.15rem;color:var(--gray);max-width:640px;margin:0 auto 36px}
+.hero-stats{display:flex;justify-content:center;gap:48px;margin-top:48px}
+.hero-stats .stat{text-align:center}
+.hero-stats .stat-num{font-size:2rem;font-weight:800;color:var(--blue2)}
+.hero-stats .stat-label{font-size:.85rem;color:var(--gray2)}
+.btn{display:inline-block;padding:14px 32px;border-radius:8px;font-weight:600;font-size:1rem;transition:all .2s;cursor:pointer;border:none}
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(59,130,246,.3)}
+.btn-outline{border:1px solid rgba(59,130,246,.4);color:var(--blue2);background:transparent;margin-left:12px}
+.btn-outline:hover{background:rgba(59,130,246,.1)}
+
+/* SECTION */
+section{padding:80px 0}
+.section-label{text-transform:uppercase;font-size:.8rem;letter-spacing:3px;color:var(--blue2);margin-bottom:12px}
+.section-title{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;margin-bottom:16px}
+.section-desc{color:var(--gray);max-width:600px;margin-bottom:48px}
+
+/* PRODUCTS */
+#products{background:var(--bg2)}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+.product-card{background:var(--bg3);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:32px;transition:all .3s;position:relative;overflow:hidden}
+.product-card:hover{transform:translateY(-4px);border-color:rgba(59,130,246,.3);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.product-card.featured{border-color:rgba(59,130,246,.4)}
+.product-card.featured::before{content:'🔥 最受歡迎';position:absolute;top:16px;right:16px;background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;padding:4px 12px;border-radius:12px;font-size:.75rem;font-weight:600}
+.product-icon{font-size:2.5rem;margin-bottom:16px}
+.product-card h3{font-size:1.2rem;margin-bottom:8px}
+.product-card .desc{color:var(--gray);font-size:.9rem;margin-bottom:16px;min-height:60px}
+.product-features{list-style:none;margin-bottom:24px}
+.product-features li{padding:4px 0;font-size:.88rem;color:var(--gray)}
+.product-features li::before{content:'✓ ';color:var(--green)}
+.product-price{display:flex;align-items:baseline;gap:8px;margin-bottom:20px}
+.product-price .amount{font-size:2rem;font-weight:800}
+.product-price .currency{font-size:.9rem;color:var(--gray2)}
+.product-card .btn{width:100%;text-align:center;display:block}
+
+/* WHY */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.why-card{background:var(--bg2);border:1px solid rgba(255,255,255,.04);border-radius:var(--radius);padding:28px}
+.why-card .icon{font-size:2rem;margin-bottom:12px}
+.why-card h3{font-size:1.05rem;margin-bottom:8px}
+.why-card p{font-size:.9rem;color:var(--gray)}
+
+/* COMPARISON */
+.comparison-table{width:100%;border-collapse:collapse;margin-top:32px}
+.comparison-table th,.comparison-table td{padding:14px 20px;text-align:left;border-bottom:1px solid rgba(255,255,255,.06)}
+.comparison-table th{font-size:.85rem;color:var(--gray2);font-weight:500;text-transform:uppercase;letter-spacing:1px}
+.comparison-table td{font-size:.95rem}
+.comparison-table tr:hover{background:rgba(59,130,246,.03)}
+.check{color:var(--green)}
+.cross{color:var(--gray2)}
+
+/* AGENCY */
+.agency-section{background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(139,92,246,.08));border:1px solid rgba(59,130,246,.15);border-radius:16px;padding:48px;text-align:center;margin-top:48px}
+.agency-section .badge{display:inline-block;padding:6px 16px;border-radius:20px;background:rgba(245,158,11,.15);color:var(--gold);font-size:.85rem;margin-bottom:16px;border:1px solid rgba(245,158,11,.3)}
+
+/* FAQ */
+#faq{background:var(--bg2)}
+.faq-list{max-width:700px;margin:0 auto}
+.faq-item{border-bottom:1px solid rgba(255,255,255,.06);padding:20px 0}
+.faq-q{font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.faq-q::after{content:'+';font-size:1.5rem;color:var(--gray2);transition:transform .2s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s;color:var(--gray);font-size:.95rem}
+.faq-item.open .faq-a{max-height:300px;padding-top:12px}
+
+/* FOOTER */
+footer{padding:48px 0;border-top:1px solid rgba(255,255,255,.06);text-align:center}
+footer p{color:var(--gray2);font-size:.85rem}
+footer .links{margin-top:12px}
+footer .links a{color:var(--gray2);margin:0 12px;font-size:.85rem}
+footer .links a:hover{color:var(--white)}
+
+/* MOBILE */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .menu-btn{display:block}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:var(--bg);padding:20px;gap:16px;border-bottom:1px solid rgba(59,130,246,.1)}
+  .hero-stats{flex-direction:column;gap:20px}
+  .hero{padding:120px 0 60px}
+  .products-grid{grid-template-columns:1fr}
+  .agency-section{padding:32px 20px}
+  .comparison-table{font-size:.85rem}
+  .comparison-table th,.comparison-table td{padding:10px 12px}
+}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(20px);transition:all .6s}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="logo">🤖 Eve AI Products</div>
+    <button class="menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="#products">產品</a></li>
+      <li><a href="#why">為什麼選我們</a></li>
+      <li><a href="#compare">對比</a></li>
+      <li><a href="#agency">Agency 服務</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">🇭🇰 第一個中文 OpenClaw 產品線</div>
+    <h1>讓你的 AI 助手<br><span class="gradient">真正懂中文</span></h1>
+    <p>專為繁體中文用戶打造的 OpenClaw 產品。<br>不是翻譯，是原生中文 — 經過 1,000+ 小時生產環境迭代。</p>
+    <div>
+      <a href="#products" class="btn btn-primary">瀏覽產品</a>
+      <a href="#faq" class="btn btn-outline">了解更多</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">1,000+</div><div class="stat-label">小時生產測試</div></div>
+      <div class="stat"><div class="stat-num">9</div><div class="stat-label">核心配置檔案</div></div>
+      <div class="stat"><div class="stat-num">15+</div><div class="stat-label">AI Skills</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="container">
+    <div class="section-label">產品</div>
+    <h2 class="section-title">選擇適合你的方案</h2>
+    <p class="section-desc">從入門指南到生產級配置，滿足不同階段的需求。</p>
+    
+    <div class="products-grid">
+      <!-- PDF Guide -->
+      <div class="product-card fade-in">
+        <div class="product-icon">📘</div>
+        <h3>OpenClaw 完全設定指南</h3>
+        <div class="desc">繁體中文版。12 章完整教學，從安裝到進階配置，Zero to Hero。</div>
+        <ul class="product-features">
+          <li>安裝與環境設定（Windows/Mac/Linux/VPS）</li>
+          <li>核心概念與配置詳解</li>
+          <li>連接 Telegram/Discord/WhatsApp</li>
+          <li>Skills 系統 + 記憶管理</li>
+          <li>Multi-Agent 架構</li>
+          <li>安全最佳實踐</li>
+        </ul>
+        <div class="product-price"><span class="amount">US$29</span><span class="currency">/ HK$199</span></div>
+        <a href="#" class="btn btn-primary" onclick="alert('Coming soon — 即將上線！')">立即購買</a>
+      </div>
+
+      <!-- Eve Persona -->
+      <div class="product-card featured fade-in">
+        <div class="product-icon">🤖</div>
+        <h3>Eve Persona Pack</h3>
+        <div class="desc">生產級 AI 助手配置。不是 demo，是真正運行業務的 AI。</div>
+        <ul class="product-features">
+          <li>9 個核心配置檔案（SOUL/AGENTS/RULES...）</li>
+          <li>1,000+ 小時生產環境迭代</li>
+          <li>原生繁體中文（不是翻譯）</li>
+          <li>記憶管理系統</li>
+          <li>Heartbeat 自主任務</li>
+          <li>安全防護規則</li>
+        </ul>
+        <div class="product-price"><span class="amount">US$79</span></div>
+        <a href="#" class="btn btn-primary" onclick="alert('Coming soon — 即將上線！')">立即購買</a>
+      </div>
+
+      <!-- Ecommerce Pack -->
+      <div class="product-card fade-in">
+        <div class="product-icon">🛒</div>
+        <h3>電商營運 Skill Pack</h3>
+        <div class="desc">讓 AI 成為你的電商營運助手。監測競品、生成文案、分析數據。</div>
+        <ul class="product-features">
+          <li>競品價格監測 + 自動報告</li>
+          <li>產品文案批量生成（SEO 優化）</li>
+          <li>銷售數據分析 + 趨勢預測</li>
+          <li>客戶評論情感分析</li>
+          <li>營運報告自動化</li>
+        </ul>
+        <div class="product-price"><span class="amount">US$49</span></div>
+        <a href="#" class="btn btn-primary" onclick="alert('Coming soon — 即將上線！')">立即購買</a>
+      </div>
+
+      <!-- Content Marketing Pack -->
+      <div class="product-card fade-in">
+        <div class="product-icon">📝</div>
+        <h3>內容營銷 Skill Pack</h3>
+        <div class="desc">AI 驅動的內容工廠。SEO 文章、社交媒體、Email 營銷一站式搞定。</div>
+        <ul class="product-features">
+          <li>SEO 文章自動生成 + 優化</li>
+          <li>社交媒體帖文（IG/X/小紅書）</li>
+          <li>Email 營銷序列模板</li>
+          <li>內容日曆管理</li>
+          <li>內容表現分析報告</li>
+        </ul>
+        <div class="product-price"><span class="amount">US$39</span></div>
+        <a href="#" class="btn btn-primary" onclick="alert('Coming soon — 即將上線！')">立即購買</a>
+      </div>
+
+      <!-- Customer Service Pack -->
+      <div class="product-card fade-in">
+        <div class="product-icon">💬</div>
+        <h3>客服自動化 Skill Pack</h3>
+        <div class="desc">24/7 AI 客服。繁中/簡中/英文多語言，情緒偵測自動升級。</div>
+        <ul class="product-features">
+          <li>FAQ 自動回覆系統</li>
+          <li>工單自動分類 + 優先排序</li>
+          <li>繁中/簡中/英文自動切換</li>
+          <li>退款流程自動化</li>
+          <li>情緒偵測 + 升級機制</li>
+        </ul>
+        <div class="product-price"><span class="amount">US$39</span></div>
+        <a href="#" class="btn btn-primary" onclick="alert('Coming soon — 即將上線！')">立即購買</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="container">
+    <div class="section-label">為什麼選我們</div>
+    <h2 class="section-title">不是翻譯，是原生中文</h2>
+    <p class="section-desc">市場上 99% 的 OpenClaw 產品都是英文。我們是第一個從零開始為中文用戶設計的產品線。</p>
+    
+    <div class="why-grid">
+      <div class="why-card fade-in">
+        <div class="icon">🎯</div>
+        <h3>生產環境驗證</h3>
+        <p>不是理論、不是 demo。所有配置都經過 1,000+ 小時的實際業務運行測試。</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="icon">🇭🇰</div>
+        <h3>原生中文思維</h3>
+        <p>用中文寫的 SOUL.md 和 AGENTS.md，AI 的思維方式就是中文的。不是英文翻譯。</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="icon">⚡</div>
+        <h3>即裝即用</h3>
+        <p>複製檔案、修改 USER.md、重啟。5 分鐘內你的 AI 助手就變了一個人。</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="icon">🔐</div>
+        <h3>安全第一</h3>
+        <p>內建完整安全規則。防止數據洩露、prompt injection、未授權操作。</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="icon">🧠</div>
+        <h3>記憶系統</h3>
+        <p>結構化的長短期記憶管理。你的 AI 不會忘記重要的事。</p>
+      </div>
+      <div class="why-card fade-in">
+        <div class="icon">🔄</div>
+        <h3>持續更新</h3>
+        <p>隨著 OpenClaw 版本更新，我們的產品也同步更新。一次購買，終身受益。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section id="compare" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-label">對比</div>
+    <h2 class="section-title">Eve vs 其他 OpenClaw Persona</h2>
+    
+    <table class="comparison-table fade-in">
+      <thead>
+        <tr>
+          <th>功能</th>
+          <th>Eve Persona</th>
+          <th>Felix ($99)</th>
+          <th>Free Personas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>中文原生</td><td class="check">✅ 繁中/簡中</td><td class="cross">❌ 英文</td><td class="cross">❌ 英文</td></tr>
+        <tr><td>生產環境測試</td><td class="check">✅ 1,000+ hr</td><td class="check">✅</td><td class="cross">❌ 未驗證</td></tr>
+        <tr><td>記憶管理系統</td><td class="check">✅ 完整</td><td class="check">✅</td><td class="cross">❌ 基礎</td></tr>
+        <tr><td>安全規則</td><td class="check">✅ SECURITY.md</td><td class="check">⚠️ 部分</td><td class="cross">❌ 無</td></tr>
+        <tr><td>Heartbeat 自主任務</td><td class="check">✅</td><td class="check">✅</td><td class="cross">❌</td></tr>
+        <tr><td>行業 Skills</td><td class="check">✅ 可加購</td><td class="cross">❌</td><td class="cross">❌</td></tr>
+        <tr><td>中文客服支持</td><td class="check">✅</td><td class="cross">❌</td><td class="cross">❌</td></tr>
+        <tr><td>價格</td><td><strong>US$79</strong></td><td>US$99</td><td>Free</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- AGENCY -->
+<section id="agency">
+  <div class="container">
+    <div class="agency-section fade-in">
+      <div class="badge">🔜 即將推出</div>
+      <h2 class="section-title">中文 OpenClaw Agency 服務</h2>
+      <p style="color:var(--gray);max-width:600px;margin:16px auto 24px">不想自己動手？我們幫你量身定制 AI Agent。<br>從需求分析到部署上線，全程包辦。</p>
+      <div style="display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin:32px 0">
+        <div><div style="font-size:2rem;font-weight:800;color:var(--blue2)">US$1,500</div><div style="font-size:.85rem;color:var(--gray2)">一次性設定費</div></div>
+        <div><div style="font-size:2rem;font-weight:800;color:var(--blue2)">US$300</div><div style="font-size:.85rem;color:var(--gray2)">月度維護費</div></div>
+      </div>
+      <p style="color:var(--gray);font-size:.9rem">目標客戶：香港 / 台灣 / 新加坡中小企業</p>
+      <a href="mailto:manceli@m-pro.com.hk" class="btn btn-primary" style="margin-top:20px">聯繫我們</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-label">常見問題</div>
+    <h2 class="section-title">FAQ</h2>
+    
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">什麼是 OpenClaw？</div>
+        <div class="faq-a">OpenClaw 是一個開源 AI Agent 框架，讓你建立自主運行的 AI 助手。可以透過 Telegram、Discord、WhatsApp 等平台控制，安裝 Skills 擴展功能。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">我需要技術背景嗎？</div>
+        <div class="faq-a">Setup Guide 適合所有人。Skill Packs 需要已安裝 OpenClaw。如果完全不懂技術，建議使用我們的 Agency 服務（即將推出）。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">購買後可以退款嗎？</div>
+        <div class="faq-a">7 天內無條件退款。如果產品不符合預期，我們全額退款。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Persona Pack 和 Skill Pack 有什麼分別？</div>
+        <div class="faq-a">Persona Pack 定義 AI 的「性格和行為」— 它怎麼思考、怎麼說話、怎麼工作。Skill Pack 是「技能」— 教 AI 做特定的事（如監測競品、寫文案）。兩者可以一起用。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">會定期更新嗎？</div>
+        <div class="faq-a">會。OpenClaw 版本更新時，我們會同步更新產品。購買一次，所有更新免費。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">可以用在商業用途嗎？</div>
+        <div class="faq-a">可以。購買後你可以自由修改和使用，包括商業用途。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p><strong>Eve AI Products</strong> by Mercury Production Limited（水星製作會社有限公司）</p>
+    <div class="links">
+      <a href="mailto:manceli@m-pro.com.hk">聯絡我們</a>
+      <a href="https://docs.openclaw.ai" target="_blank">OpenClaw 文檔</a>
+      <a href="https://clawhub.com" target="_blank">ClawHub</a>
+    </div>
+    <p style="margin-top:16px">© 2026 Mercury Production Limited. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// FAQ toggle
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    q.parentElement.classList.toggle('open');
+  });
+});
+
+// Scroll animation
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
+  });
+},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t)t.scrollIntoView({behavior:'smooth'});
+    document.querySelector('.nav-links').classList.remove('open');
+  });
+});
+</script>
+
+</body>
+</html>
