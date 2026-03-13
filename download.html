@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>下載你的產品 — Eve AI Products</title>
+<meta name="description" content="感謝購買 Eve AI 產品。立即下載你的檔案。">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0f1e;--bg2:#111827;--bg3:#1a2332;--blue:#3b82f6;--blue2:#60a5fa;--cyan:#06b6d4;--white:#f8fafc;--gray:#94a3b8;--gray2:#64748b;--green:#10b981;--purple:#8b5cf6;--gold:#f59e0b;--radius:12px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans TC',sans-serif;background:var(--bg);color:var(--white);line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
+a{color:var(--blue2);text-decoration:none}
+.container{max-width:700px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+nav{background:rgba(10,15,30,.95);border-bottom:1px solid rgba(59,130,246,.1);padding:16px 0}
+nav .container{display:flex;justify-content:space-between;align-items:center;max-width:1200px}
+.logo{font-size:1.25rem;font-weight:700;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+/* MAIN */
+main{flex:1;display:flex;align-items:center;padding:60px 0}
+.card{background:var(--bg3);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);padding:48px 40px;text-align:center;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:400px;height:400px;background:radial-gradient(circle,rgba(16,185,129,.08),transparent 70%);pointer-events:none}
+
+.success-icon{font-size:4rem;margin-bottom:20px;display:block}
+.card h1{font-size:1.9rem;font-weight:800;margin-bottom:12px}
+.card .subtitle{color:var(--gray);margin-bottom:36px;font-size:1.05rem}
+
+/* Product info */
+.product-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:20px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);color:#34d399;font-size:.9rem;font-weight:600;margin-bottom:32px}
+
+/* Download button */
+.btn-download{display:inline-flex;align-items:center;gap:10px;padding:16px 40px;border-radius:8px;font-weight:700;font-size:1.05rem;background:linear-gradient(135deg,var(--green),#059669);color:#fff;transition:all .2s;cursor:pointer;border:none;text-decoration:none}
+.btn-download:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(16,185,129,.3);color:#fff}
+.btn-download svg{width:20px;height:20px;flex-shrink:0}
+
+/* Instructions */
+.instructions{margin-top:36px;background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.12);border-radius:8px;padding:24px;text-align:left}
+.instructions h3{font-size:.95rem;font-weight:700;color:var(--blue2);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px}
+.instructions ol{padding-left:20px;color:var(--gray);font-size:.9rem;display:flex;flex-direction:column;gap:8px}
+.instructions li strong{color:var(--white)}
+
+/* Support */
+.support{margin-top:28px;color:var(--gray2);font-size:.85rem}
+.support a{color:var(--blue2)}
+
+/* Error state */
+.error-state{display:none}
+.error-icon{font-size:3rem;margin-bottom:16px;display:block}
+.error-state h1{font-size:1.7rem;font-weight:700;margin-bottom:12px;color:#f87171}
+.btn-back{display:inline-block;margin-top:20px;padding:12px 28px;border-radius:8px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);color:var(--blue2);font-weight:600;transition:all .2s}
+.btn-back:hover{background:rgba(59,130,246,.2);color:var(--blue2)}
+
+/* Footer */
+footer{padding:24px 0;text-align:center;color:var(--gray2);font-size:.8rem;border-top:1px solid rgba(255,255,255,.04)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="/" class="logo">Eve AI Products</a>
+    <a href="/" style="color:var(--gray);font-size:.9rem">← 返回首頁</a>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+
+    <!-- Success state (default) -->
+    <div class="card" id="success-state">
+      <span class="success-icon">🎉</span>
+      <h1>付款成功！感謝你的購買</h1>
+      <p class="subtitle">你的下載已準備好。請點擊下方按鈕下載你的產品。</p>
+
+      <div class="product-badge" id="product-badge">
+        <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        <span id="product-name">載入中…</span>
+      </div>
+
+      <a id="download-btn" class="btn-download" href="#" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        立即下載
+      </a>
+
+      <div class="instructions" id="instructions">
+        <!-- populated by JS -->
+      </div>
+
+      <p class="support">有問題？聯絡我們：<a href="mailto:hello@openclawhk.io">hello@openclawhk.io</a></p>
+    </div>
+
+    <!-- Error state -->
+    <div class="card error-state" id="error-state">
+      <span class="error-icon">⚠️</span>
+      <h1>找不到你的產品</h1>
+      <p class="subtitle" style="color:var(--gray)">此連結無效或已過期。請檢查你的購買確認電郵，或聯絡我們獲取協助。</p>
+      <p class="support" style="margin-top:20px">聯絡支援：<a href="mailto:hello@openclawhk.io">hello@openclawhk.io</a></p>
+      <a href="/" class="btn-back">返回首頁</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Eve AI Products · openclawhk.io · 香港</p>
+</footer>
+
+<script>
+(function () {
+  var products = {
+    'setup-guide': {
+      name: 'Eve AI Setup Guide',
+      file: '/downloads/eve-ai-setup-guide.pdf',
+      instructions: [
+        '<strong>下載</strong> PDF 檔案到你的裝置',
+        '<strong>打開</strong> PDF，跟隨逐步安裝指引',
+        '前往 <strong>openclaw.ai</strong> 下載 OpenClaw 應用程式',
+        '參照指南完成 <strong>Eve AI agent 設定</strong>',
+        '如有問題，查看指南附錄或聯絡支援'
+      ]
+    },
+    'persona-pack': {
+      name: 'Eve Persona Pack',
+      file: '/downloads/eve-persona-pack.zip',
+      instructions: [
+        '<strong>下載</strong> ZIP 壓縮包並解壓縮',
+        '閱讀包內的 <strong>README.md</strong> 了解安裝方法',
+        '將 persona 檔案複製到你的 <strong>OpenClaw agents 目錄</strong>',
+        '在 OpenClaw 重啟或重新載入 agent 設定',
+        '按 README 指示完成 <strong>persona 客製化設定</strong>'
+      ]
+    }
+  };
+
+  var params = new URLSearchParams(window.location.search);
+  var key = params.get('product');
+  var product = products[key];
+
+  if (!product) {
+    document.getElementById('success-state').style.display = 'none';
+    document.getElementById('error-state').style.display = 'block';
+    return;
+  }
+
+  document.getElementById('product-name').textContent = product.name;
+  document.title = '下載 ' + product.name + ' — Eve AI Products';
+
+  var btn = document.getElementById('download-btn');
+  btn.href = product.file;
+  btn.setAttribute('download', '');
+
+  var ol = product.instructions.map(function (s) {
+    return '<li>' + s + '</li>';
+  }).join('');
+  document.getElementById('instructions').innerHTML =
+    '<h3>安裝步驟</h3><ol>' + ol + '</ol>';
+})();
+</script>
+
+</body>
+</html>
