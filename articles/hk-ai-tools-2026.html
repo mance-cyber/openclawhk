@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>2026年香港企業必備 AI 工具清單：老闆揀選指南 — Eve AI Products</title>
+<meta name="description" content="2026年香港企業必備 AI 工具完整清單。從客服自動化到內容創作，涵蓋中小企最實用的 AI 工具推薦，附實際費用及香港適用性評分。">
+<meta name="keywords" content="香港 AI 工具, AI 工具推薦, 香港企業 AI, 2026 AI 工具, 中小企 AI 軟件, AI 自動化香港">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0f1e;--bg2:#111827;--bg3:#1a2332;--blue:#3b82f6;--blue2:#60a5fa;--white:#f8fafc;--gray:#94a3b8;--gray2:#64748b;--green:#10b981;--gold:#f59e0b;--red:#ef4444;--purple:#8b5cf6;--radius:12px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans TC',sans-serif;background:var(--bg);color:var(--white);line-height:1.8}
+a{color:var(--blue2);text-decoration:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,15,30,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(59,130,246,.1);padding:16px 24px;display:flex;align-items:center}
+.logo{font-size:1.25rem;font-weight:700;background:linear-gradient(135deg,var(--blue),#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.article-wrapper{max-width:720px;margin:0 auto;padding:100px 24px 80px}
+.article-back{font-size:.85rem;color:var(--gray);display:inline-flex;align-items:center;gap:4px;margin-bottom:32px;transition:color .2s}
+.article-back:hover{color:var(--white)}
+.article-date{font-size:.75rem;color:var(--blue2);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;line-height:1.2;margin-bottom:24px}
+p{color:var(--gray);font-size:1rem;margin-bottom:20px}
+h2{font-size:1.4rem;font-weight:700;color:var(--white);margin:40px 0 16px}
+h3{font-size:1.1rem;font-weight:600;color:var(--blue2);margin:24px 0 12px}
+.lead{font-size:1.1rem;color:var(--white);opacity:.9;margin-bottom:28px}
+.tool-card{background:var(--bg3);border-radius:var(--radius);padding:24px;margin:20px 0;border:1px solid rgba(255,255,255,.06);transition:border-color .2s}
+.tool-card:hover{border-color:rgba(59,130,246,.3)}
+.tool-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.tool-name{font-size:1.1rem;font-weight:700;color:var(--white)}
+.tool-badge{font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:20px;letter-spacing:.5px}
+.badge-must{background:rgba(16,185,129,.15);color:var(--green);border:1px solid rgba(16,185,129,.3)}
+.badge-good{background:rgba(59,130,246,.15);color:var(--blue2);border:1px solid rgba(59,130,246,.3)}
+.badge-consider{background:rgba(245,158,11,.15);color:var(--gold);border:1px solid rgba(245,158,11,.3)}
+.tool-desc{color:var(--gray);font-size:.95rem;margin-bottom:12px}
+.tool-meta{display:flex;gap:16px;flex-wrap:wrap}
+.tool-meta-item{font-size:.8rem;color:var(--gray2);display:flex;align-items:center;gap:4px}
+.tool-meta-item span{color:var(--white);font-weight:600}
+.score-bar{display:flex;align-items:center;gap:8px;margin-top:8px}
+.score-label{font-size:.75rem;color:var(--gray2);width:80px}
+.score-track{flex:1;height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}
+.score-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--blue),#06b6d4)}
+.score-num{font-size:.75rem;color:var(--blue2);font-weight:600;width:30px;text-align:right}
+.category-header{display:flex;align-items:center;gap:10px;margin:48px 0 20px}
+.category-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.cat-blue{background:rgba(59,130,246,.15)}
+.cat-green{background:rgba(16,185,129,.15)}
+.cat-purple{background:rgba(139,92,246,.15)}
+.cat-gold{background:rgba(245,158,11,.15)}
+.category-title{font-size:1.2rem;font-weight:700;color:var(--white)}
+.callout{background:var(--bg3);border-left:4px solid var(--blue);border-radius:0 var(--radius) var(--radius) 0;padding:20px 24px;margin:32px 0}
+.callout p{margin:0;color:var(--white)}
+.callout strong{color:var(--blue2)}
+.summary-table{width:100%;border-collapse:collapse;margin:24px 0}
+.summary-table th{background:var(--bg3);padding:12px 16px;text-align:left;font-size:.85rem;color:var(--gray2);font-weight:600;border-bottom:1px solid rgba(255,255,255,.06)}
+.summary-table td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--gray);font-size:.9rem}
+.summary-table tr:hover td{background:rgba(255,255,255,.02)}
+.tag-must{color:var(--green);font-weight:600}
+.tag-good{color:var(--blue2);font-weight:600}
+.tag-consider{color:var(--gold);font-weight:600}
+.cta-box{background:linear-gradient(135deg,rgba(59,130,246,.12),rgba(6,182,212,.08));border:1px solid rgba(59,130,246,.2);border-radius:var(--radius);padding:32px;text-align:center;margin:48px 0}
+.cta-box h3{font-size:1.3rem;color:var(--white);margin-bottom:12px}
+.cta-box p{color:var(--gray);margin-bottom:20px}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,var(--blue),#06b6d4);color:var(--white);padding:12px 28px;border-radius:8px;font-weight:600;font-size:.95rem;transition:opacity .2s}
+.cta-btn:hover{opacity:.85}
+footer{padding:40px 24px;border-top:1px solid rgba(255,255,255,.06);text-align:center}
+footer p{font-size:.85rem;color:var(--gray2)}
+@media(max-width:600px){.tool-header{flex-direction:column;align-items:flex-start;gap:8px}.tool-meta{gap:10px}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="logo">🤖 Eve AI Products</a>
+</nav>
+<article class="article-wrapper">
+  <a href="../index.html#blog" class="article-back">← 返回文章列表</a>
+
+  <p class="article-date">2026年3月 · 工具推薦</p>
+  <h1>2026年香港企業必備 AI 工具清單：老闆揀選指南</h1>
+  <p class="lead">AI 工具市場每月都有新產品，香港老闆點樣揀？我哋整理咗 2026 年最值得香港中小企考慮嘅 AI 工具，每款附上實際費用、中文支援評分同香港適用性，幫你做最精明嘅選擇。</p>
+
+  <p>香港有超過 36 萬間中小企，但用緊 AI 工具嘅唔夠兩成。唔係唔想用，係唔知揀邊款。呢篇文章唔係幫你「掃貨」，係幫你根據自己業務揀啱工具。</p>
+
+  <div class="callout">
+    <p>📌 <strong>揀工具的黃金原則：</strong>唔係功能最多就最好。對香港中小企黎講，「中文支援好、上手快、性價比高」先係關鍵。</p>
+  </div>
+
+  <!-- 客服自動化 -->
+  <div class="category-header">
+    <div class="category-icon cat-blue">💬</div>
+    <h2 class="category-title">客戶服務 &amp; 溝通自動化</h2>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-name">OpenClaw（Eve AI）</span>
+      <span class="tool-badge badge-must">必備推薦</span>
+    </div>
+    <p class="tool-desc">專為香港中小企設計嘅 AI CEO 系統。可以幫你管理每日運營、回覆客戶查詢、分配任務畀 AI 員工。中文廣東話理解能力係同類產品中最強。</p>
+    <div class="tool-meta">
+      <div class="tool-meta-item">💰 月費：<span>免費起步</span></div>
+      <div class="tool-meta-item">🌐 中文支援：<span>⭐⭐⭐⭐⭐</span></div>
+      <div class="tool-meta-item">🇭🇰 香港適用：<span>極高</span></div>
+    </div>
+    <div class="score-bar"><span class="score-label">易用程度</span><div class="score-track"><div class="score-fill" style="width:90%"></div></div><span class="score-num">9/10</span></div>
+    <div class="score-bar"><span class="score-label">功能深度</span><div class="score-track"><div class="score-fill" style="width:92%"></div></div><span class="score-num">9/10</span></div>
+    <div class="score-bar"><span class="score-label">性價比</span><div class="score-track"><div class="score-fill" style="width:95%"></div></div><span class="score-num">9.5/10</span></div>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-name">Intercom Fin AI</span>
+      <span class="tool-badge badge-good">值得考慮</span>
+    </div>
+    <p class="tool-desc">國際知名客服 AI，自動回覆率可達 60%。英文支援強，但中文廣東話理解較弱。適合以英文為主要溝通語言嘅企業。</p>
+    <div class="tool-meta">
+      <div class="tool-meta-item">💰 月費：<span>HK$780 起</span></div>
+      <div class="tool-meta-item">🌐 中文支援：<span>⭐⭐⭐</span></div>
+      <div class="tool-meta-item">🇭🇰 香港適用：<span>中等</span></div>
+    </div>
+    <div class="score-bar"><span class="score-label">易用程度</span><div class="score-track"><div class="score-fill" style="width:82%"></div></div><span class="score-num">8/10</span></div>
+    <div class="score-bar"><span class="score-label">功能深度</span><div class="score-track"><div class="score-fill" style="width:78%"></div></div><span class="score-num">7.8/10</span></div>
+    <div class="score-bar"><span class="score-label">性價比</span><div class="score-track"><div class="score-fill" style="width:60%"></div></div><span class="score-num">6/10</span></div>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-name">Tidio AI</span>
+      <span class="tool-badge badge-consider">按需考慮</span>
+    </div>
+    <p class="tool-desc">中小企常用嘅 Live Chat + AI 組合。免費版功能夠用，付費版 AI 自動回覆效果不俗。介面簡單，設置快。</p>
+    <div class="tool-meta">
+      <div class="tool-meta-item">💰 月費：<span>免費 / HK$230 起</span></div>
+      <div class="tool-meta-item">🌐 中文支援：<span>⭐⭐⭐</span></div>
+      <div class="tool-meta-item">🇭🇰 香港適用：<span>中等</span></div>
+    </div>
+  </div>
+
+  <!-- 內容創作 -->
+  <div class="category-header">
+    <div class="category-icon cat-purple">✍️</div>
+    <h2 class="category-title">內容創作 &amp; 文案撰寫</h2>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-name">Claude（Anthropic）</span>
+      <span class="tool-badge badge-must">必備推薦</span>
+    </div>
+    <p class="tool-desc">目前繁體中文寫作能力最強嘅 AI 模型。寫 blog post、社媒文案、產品描述均表現出色。理解香港用語同本地 context，係香港創業者首選。</p>
+    <div class="tool-meta">
+      <div class="tool-meta-item">💰 月費：<span>免費 / HK$160（Pro）</span></div>
+      <div class="tool-meta-item">🌐 中文支援：<span>⭐⭐⭐⭐⭐</span></div>
+      <div class="tool-meta-item">🇭🇰 香港適用：<span>極高</span></div>
+    </div>
+    <div class="score-bar"><span class="score-label">寫作質素</span><div class="score-track"><div class="score-fill" style="width:95%"></div></div><span class="score-num">9.5/10</span></div>
+    <div class="score-bar"><span class="score-label">廣東話理解</span><div class="score-track"><div class="score-fill" style="width:90%"></div></div><span class="score-num">9/10</span></div>
+    <div class="score-bar"><span class="score-label">性價比</span><div class="score-track"><div class="score-fill" style="width:92%"></div></div><span class="score-num">9.2/10</span></div>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-name">Jasper AI</span>
+      <span class="tool-badge badge-good">值得考慮</span>
+    </div>
+    <p class="tool-desc">市場營銷文案專用 AI，有豐富嘅 templates。對 SEO 優化文案特別有用。中文支援一般，建議配合人手微調。</p>
+    <div class="tool-meta">
+      <div class="tool-meta-item">💰 月費：<span>HK$620 起</span></div>
+      <div class="tool-meta-item">🌐 中文支援：<span>⭐⭐⭐</span></div>
+      <div class="tool-meta-item">🇭🇰 香港適用：<span>中等</span></div>
+    </div>
+  </div>
+
+  <!-- 業務自動化 -->
+  <div class="category-header">
+    <div class="category-icon cat-green">⚙️</div>
+    <h2 class="category-title">業務流程自動化</h2>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-name">Make（前 Integromat）</span>
+      <span class="tool-badge badge-must">必備推薦</span>
+    </div>
+    <p class="tool-desc">視覺化自動化流程工具，可連接超過 1,500 個應用程式。將重複性工作（如訂單處理、電郵跟進）自動化，唔需要寫程式碼。</p>
+    <div class="tool-meta">
+      <div class="tool-meta-item">💰 月費：<span>免費 / HK$160 起</span></div>
+      <div class="tool-meta-item">🌐 中文支援：<span>⭐⭐⭐</span></div>
+      <div class="tool-meta-item">🇭🇰 香港適用：<span>高</span></div>
+    </div>
+    <div class="score-bar"><span class="score-label">自動化深度</span><div class="score-track"><div class="score-fill" style="width:92%"></div></div><span class="score-num">9.2/10</span></div>
+    <div class="score-bar"><span class="score-label">易學程度</span><div class="score-track"><div class="score-fill" style="width:78%"></div></div><span class="score-num">7.8/10</span></div>
+    <div class="score-bar"><span class="score-label">性價比</span><div class="score-track"><div class="score-fill" style="width:88%"></div></div><span class="score-num">8.8/10</span></div>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-name">Zapier</span>
+      <span class="tool-badge badge-good">值得考慮</span>
+    </div>
+    <p class="tool-desc">自動化工具老大哥，應用生態系最完整。比 Make 易上手但功能靈活性略低，月費相對較貴。</p>
+    <div class="tool-meta">
+      <div class="tool-meta-item">💰 月費：<span>免費 / HK$490 起</span></div>
+      <div class="tool-meta-item">🌐 中文支援：<span>⭐⭐</span></div>
+      <div class="tool-meta-item">🇭🇰 香港適用：<span>中至高</span></div>
+    </div>
+  </div>
+
+  <!-- 圖像視覺 -->
+  <div class="category-header">
+    <div class="category-icon cat-gold">🎨</div>
+    <h2 class="category-title">圖像設計 &amp; 視覺內容</h2>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-name">Canva AI</span>
+      <span class="tool-badge badge-must">必備推薦</span>
+    </div>
+    <p class="tool-desc">設計工具加入 AI 生成功能後，香港 SME 用得最多嘅設計軟件。Magic Design 可以即時生成社媒貼圖、宣傳單張。有繁體中文介面。</p>
+    <div class="tool-meta">
+      <div class="tool-meta-item">💰 月費：<span>免費 / HK$120（Pro）</span></div>
+      <div class="tool-meta-item">🌐 中文支援：<span>⭐⭐⭐⭐⭐</span></div>
+      <div class="tool-meta-item">🇭🇰 香港適用：<span>極高</span></div>
+    </div>
+    <div class="score-bar"><span class="score-label">易用程度</span><div class="score-track"><div class="score-fill" style="width:95%"></div></div><span class="score-num">9.5/10</span></div>
+    <div class="score-bar"><span class="score-label">設計質素</span><div class="score-track"><div class="score-fill" style="width:82%"></div></div><span class="score-num">8.2/10</span></div>
+    <div class="score-bar"><span class="score-label">性價比</span><div class="score-track"><div class="score-fill" style="width:92%"></div></div><span class="score-num">9.2/10</span></div>
+  </div>
+
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-name">Midjourney</span>
+      <span class="tool-badge badge-consider">按需考慮</span>
+    </div>
+    <p class="tool-desc">AI 圖像生成質素最高，適合需要高質素視覺素材嘅品牌。學習曲線較高，需要掌握 prompt 技巧。</p>
+    <div class="tool-meta">
+      <div class="tool-meta-item">💰 月費：<span>HK$80 起</span></div>
+      <div class="tool-meta-item">🌐 中文支援：<span>⭐⭐</span></div>
+      <div class="tool-meta-item">🇭🇰 香港適用：<span>中等</span></div>
+    </div>
+  </div>
+
+  <h2>快速對照表：我應該用邊款？</h2>
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th>業務需求</th>
+        <th>推薦工具</th>
+        <th>優先級</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>整體 AI 運營管理</td><td>OpenClaw（Eve AI）</td><td class="tag-must">必備</td></tr>
+      <tr><td>繁體中文文案撰寫</td><td>Claude</td><td class="tag-must">必備</td></tr>
+      <tr><td>社媒圖片設計</td><td>Canva AI</td><td class="tag-must">必備</td></tr>
+      <tr><td>業務流程自動化</td><td>Make</td><td class="tag-must">必備</td></tr>
+      <tr><td>英文客服自動化</td><td>Intercom Fin AI</td><td class="tag-good">視乎需要</td></tr>
+      <tr><td>中文客服 + 整合運營</td><td>OpenClaw（Eve AI）</td><td class="tag-must">必備</td></tr>
+      <tr><td>SEO 英文文案</td><td>Jasper AI</td><td class="tag-good">視乎需要</td></tr>
+      <tr><td>品牌視覺素材</td><td>Midjourney</td><td class="tag-consider">選擇性</td></tr>
+    </tbody>
+  </table>
+
+  <h2>2026年 AI 工具選擇三大原則</h2>
+
+  <h3>1. 中文支援唔可以將就</h3>
+  <p>香港客戶習慣用廣東話同繁體中文溝通。如果你嘅 AI 工具喺中文理解方面差，唔單止幫唔到你，更會令客戶體驗變差。OpenClaw 同 Claude 係目前本地化最好嘅選擇。</p>
+
+  <h3>2. 先 free trial，後付費</h3>
+  <p>大多數工具都有免費版或試用期。建議先用免費版測試適合度，再決定是否升級。唔好一開始就訂年費計劃——香港市場變化快，今年最好用嘅工具，明年可能有更好替代品。</p>
+
+  <h3>3. 工具之間要能互通</h3>
+  <p>單一工具效益有限。真正強大嘅 AI 系統係靠多個工具配合運作。例如：OpenClaw 管理運營 → Claude 負責文案 → Canva 製作圖片 → Make 自動發布。整條流水線自動化先係目標。</p>
+
+  <div class="callout">
+    <p>💡 <strong>實際案例：</strong>觀塘一間貿易公司，用以上工具組合後，每月節省約 18 小時行政工作，同時內容產出量增加 3 倍。投資回報期少於一個月。</p>
+  </div>
+
+  <h2>點樣開始：三步上手 AI 工具</h2>
+  <p>好多香港老闆知道 AI 有用，但唔知點開始。以下係最簡單嘅起步路線：</p>
+  <p><strong>第一步：</strong>先解決一個最痛嘅問題。係客服太忙？係文案唔夠快？揀一個工具解決一個問題。</p>
+  <p><strong>第二步：</strong>跑通一個完整流程。例如：收到客戶 WhatsApp → AI 自動分類回覆 → 人手跟進複雜案例。確認流程有效先擴展。</p>
+  <p><strong>第三步：</strong>逐步整合。等第一個工具運作穩定後，再加入第二個工具，慢慢建立完整嘅 AI 運營系統。</p>
+  <p>唔需要一次過用晒所有工具。循序漸進，反而見效更快。</p>
+
+  <div class="cta-box">
+    <h3>想了解 OpenClaw 點樣幫你管理香港業務？</h3>
+    <p>專為香港中小企設計，中文廣東話支援，5 分鐘快速設置，免費開始。</p>
+    <a href="../download.html" class="cta-btn">免費試用 OpenClaw →</a>
+  </div>
+
+  <p style="color:var(--gray2);font-size:.85rem;margin-top:32px">本文資料截至 2026 年 3 月，工具定價及功能可能有所變化，建議以官方網站為準。</p>
+</article>
+<footer>
+  <p>© 2026 Eve AI Products · <a href="../index.html">返回首頁</a></p>
+</footer>
+</body>
+</html>
