@@ -9,10 +9,9 @@ const stripe = require('stripe');
 // TODO: Replace these price IDs with your actual Stripe Price IDs from the dashboard
 const PRODUCTS = {
   'price_setup_guide': {
-    name: 'Eve AI Setup Guide (Traditional Chinese)',
-    nameZh: 'Eve AI 設定指南（繁體中文）',
-    downloadUrl: 'https://openclawhk.io/downloads/eve-ai-setup-guide-tc.pdf',
-    // Or use a signed S3/Cloudflare R2 URL — see README for approach
+    name: 'OpenClaw Setup Guide (Traditional Chinese)',
+    nameZh: 'OpenClaw 設定指南（繁體中文）',
+    downloadUrl: 'https://openclawhk.io/downloads/openclaw-setup-guide-tc.pdf',
   },
   'price_persona_pack': {
     name: 'Eve Persona Pack',
@@ -24,10 +23,10 @@ const PRODUCTS = {
     nameZh: '電商 Skill Pack',
     downloadUrl: 'https://openclawhk.io/downloads/ecommerce-skill-pack.zip',
   },
-  'price_social_skill_pack': {
-    name: 'Social Media Skill Pack',
-    nameZh: '社交媒體 Skill Pack',
-    downloadUrl: 'https://openclawhk.io/downloads/social-skill-pack.zip',
+  'price_content_marketing_skill_pack': {
+    name: 'Content Marketing Skill Pack',
+    nameZh: '內容行銷 Skill Pack',
+    downloadUrl: 'https://openclawhk.io/downloads/content-marketing-skill-pack.zip',
   },
 };
 
@@ -39,10 +38,10 @@ function findProductByLineItems(lineItems) {
     if (priceId && PRODUCTS[priceId]) return PRODUCTS[priceId];
     // Fallback: match by product name substring
     const productName = (item.description || item.price?.product?.name || '').toLowerCase();
-    if (productName.includes('setup guide')) return PRODUCTS['price_setup_guide'];
+    if (productName.includes('setup guide') || productName.includes('openclaw')) return PRODUCTS['price_setup_guide'];
     if (productName.includes('persona')) return PRODUCTS['price_persona_pack'];
     if (productName.includes('ecommerce') || productName.includes('e-commerce')) return PRODUCTS['price_ecommerce_skill_pack'];
-    if (productName.includes('social')) return PRODUCTS['price_social_skill_pack'];
+    if (productName.includes('content marketing')) return PRODUCTS['price_content_marketing_skill_pack'];
   }
   return null;
 }
