@@ -28,6 +28,16 @@ const PRODUCTS = {
     nameZh: '內容行銷 Skill Pack',
     downloadUrl: 'https://openclawhk.io/downloads/content-marketing-skill-pack.zip',
   },
+  'price_customer_service_skill_pack': {
+    name: 'Content Marketing Skill Pack',
+    nameZh: '內容行銷 Skill Pack',
+    downloadUrl: 'https://openclawhk.io/downloads/content-marketing-skill-pack.zip',
+  },
+  'price_customer_service_skill_pack': {
+    name: 'Customer Service Skill Pack',
+    nameZh: '客服 Skill Pack',
+    downloadUrl: 'https://openclawhk.io/downloads/customer-service-skill-pack.zip',
+  },
 };
 
 // Fallback: also match by product name if price ID not found
