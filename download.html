@@ -6,6 +6,14 @@
 <title>下載你的產品 — Eve AI Products</title>
 <meta name="description" content="感謝購買 Eve AI 產品。立即下載你的檔案。">
 <meta name="robots" content="noindex,nofollow">
+<!-- Google Analytics 4 — TODO: Replace G-XXXXXXXXXX with your actual Measurement ID from GA4 dashboard -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -151,6 +159,17 @@ footer{padding:24px 0;text-align:center;color:var(--gray2);font-size:.8rem;borde
   var btn = document.getElementById('download-btn');
   btn.href = product.file;
   btn.setAttribute('download', '');
+
+  // GA4: track download button click
+  btn.addEventListener('click', function () {
+    if (typeof gtag === 'function') {
+      gtag('event', 'download_click', {
+        event_category: 'conversion',
+        product_name: product.name,
+        file_url: product.file
+      });
+    }
+  });
 
   var ol = product.instructions.map(function (s) {
     return '<li>' + s + '</li>';

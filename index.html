@@ -27,6 +27,14 @@
   ]
 }
 </script>
+<!-- Google Analytics 4 — TODO: Replace G-XXXXXXXXXX with your actual Measurement ID from GA4 dashboard -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Eve AI Products — 第一個中文 OpenClaw 產品線</title>
@@ -486,6 +494,42 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     const t=document.querySelector(a.getAttribute('href'));
     if(t)t.scrollIntoView({behavior:'smooth'});
     document.querySelector('.nav-links').classList.remove('open');
+  });
+});
+
+// GA4 Event Tracking
+// Buy button clicks — track product name + price
+const buyButtons = [
+  {url:'https://buy.stripe.com/eVq7sDeUpahu2p84Sw4Vy02', name:'Eve AI Setup Guide', price:29},
+  {url:'https://buy.stripe.com/bJeeV5aE961e1l4gBe4Vy03', name:'Eve Persona Pack', price:79},
+  {url:'https://buy.stripe.com/5kQ28j4fL0GUfbU1Gk4Vy04', name:'電商營運 Skill Pack', price:49},
+  {url:'https://buy.stripe.com/7sY8wH8w14Xa6Fo5WA4Vy05', name:'內容行銷 Skill Pack', price:39},
+  {url:'https://buy.stripe.com/dRm00b7rX61e0h0gBe4Vy06', name:'客戶服務 Skill Pack', price:29},
+];
+document.querySelectorAll('a[href^="https://buy.stripe.com"]').forEach(a=>{
+  a.addEventListener('click',()=>{
+    const match=buyButtons.find(b=>b.url===a.href);
+    if(match && typeof gtag==='function'){
+      gtag('event','buy_button_click',{
+        event_category:'ecommerce',
+        product_name:match.name,
+        value:match.price,
+        currency:'USD'
+      });
+    }
+  });
+});
+
+// Article link clicks
+document.querySelectorAll('a[href^="articles/"], a.blog-read-more').forEach(a=>{
+  a.addEventListener('click',()=>{
+    if(typeof gtag==='function'){
+      gtag('event','article_click',{
+        event_category:'content',
+        article_url:a.href,
+        article_title:a.closest('.blog-card')?.querySelector('h3')?.textContent||a.textContent
+      });
+    }
   });
 });
 </script>
