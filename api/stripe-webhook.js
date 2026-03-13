@@ -52,6 +52,7 @@ function findProductByLineItems(lineItems) {
     if (productName.includes('persona')) return PRODUCTS['price_persona_pack'];
     if (productName.includes('ecommerce') || productName.includes('e-commerce')) return PRODUCTS['price_ecommerce_skill_pack'];
     if (productName.includes('content marketing')) return PRODUCTS['price_content_marketing_skill_pack'];
+    if (productName.includes('customer service') || productName.includes('客服')) return PRODUCTS['price_customer_service_skill_pack'];
   }
   return null;
 }
