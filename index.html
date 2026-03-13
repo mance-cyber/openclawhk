@@ -46,8 +46,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans TC',sans
 a{color:var(--blue2);text-decoration:none}
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
 
+/* URGENCY BANNER */
+.urgency-banner{position:fixed;top:0;left:0;right:0;z-index:200;background:linear-gradient(90deg,rgba(245,158,11,.15),rgba(239,68,68,.12),rgba(245,158,11,.15));border-bottom:1px solid rgba(245,158,11,.3);padding:8px 16px;text-align:center;font-size:.82rem;color:var(--white)}
+.urgency-banner strong{color:var(--gold)}
+.urgency-banner .banner-code{background:rgba(245,158,11,.2);border:1px solid rgba(245,158,11,.4);border-radius:4px;padding:1px 6px;font-family:monospace;color:var(--gold);font-weight:700}
+.banner-info{cursor:help;font-size:.75rem;vertical-align:super;margin-left:2px;opacity:.7}
+.banner-close{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--gray2);cursor:pointer;font-size:1rem;padding:0 4px}
+.banner-close:hover{color:var(--white)}
+
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,15,30,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(59,130,246,.1);padding:16px 0}
+nav{position:fixed;top:36px;left:0;right:0;z-index:100;background:rgba(10,15,30,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(59,130,246,.1);padding:16px 0}
+.banner-hidden nav{top:0}
+.banner-hidden .urgency-banner{display:none}
 nav .container{display:flex;justify-content:space-between;align-items:center}
 .logo{font-size:1.25rem;font-weight:700;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .nav-links{display:flex;gap:28px;list-style:none}
@@ -56,7 +66,8 @@ nav .container{display:flex;justify-content:space-between;align-items:center}
 .menu-btn{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer}
 
 /* HERO */
-.hero{padding:160px 0 100px;text-align:center;position:relative}
+.hero{padding:196px 0 100px;text-align:center;position:relative}
+.banner-hidden .hero{padding:160px 0 100px}
 .hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(59,130,246,.15),transparent 70%);pointer-events:none}
 .hero-badge{display:inline-block;padding:6px 16px;border-radius:20px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);color:var(--blue2);font-size:.85rem;margin-bottom:24px}
 .hero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;line-height:1.2;margin-bottom:20px}
@@ -77,6 +88,21 @@ section{padding:80px 0}
 .section-label{text-transform:uppercase;font-size:.8rem;letter-spacing:3px;color:var(--blue2);margin-bottom:12px}
 .section-title{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;margin-bottom:16px}
 .section-desc{color:var(--gray);max-width:600px;margin-bottom:48px}
+
+/* PURCHASE COUNTER */
+.purchase-counter{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;color:var(--gold);background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:20px;padding:4px 10px;margin-bottom:16px}
+.purchase-counter .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse-dot 1.8s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+
+/* TOAST NOTIFICATION */
+.activity-toast{position:fixed;bottom:24px;left:24px;z-index:300;background:var(--bg3);border:1px solid rgba(59,130,246,.25);border-radius:12px;padding:14px 18px;max-width:280px;box-shadow:0 8px 32px rgba(0,0,0,.4);display:flex;align-items:flex-start;gap:10px;transform:translateX(-120%);transition:transform .4s cubic-bezier(.34,1.56,.64,1);pointer-events:auto}
+.activity-toast.show{transform:translateX(0)}
+.activity-toast .toast-icon{font-size:1.3rem;flex-shrink:0}
+.activity-toast .toast-body{flex:1}
+.activity-toast .toast-title{font-size:.8rem;color:var(--gray);margin-bottom:2px}
+.activity-toast .toast-product{font-size:.88rem;font-weight:600;color:var(--white)}
+.activity-toast .toast-time{font-size:.75rem;color:var(--blue2);margin-top:3px}
+.activity-toast .toast-close{position:absolute;top:8px;right:10px;background:none;border:none;color:var(--gray2);cursor:pointer;font-size:.9rem;padding:0}
 
 /* PRODUCTS */
 #products{background:var(--bg2)}
@@ -155,7 +181,10 @@ footer .links a:hover{color:var(--white)}
   .menu-btn{display:block}
   .nav-links.open{display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:var(--bg);padding:20px;gap:16px;border-bottom:1px solid rgba(59,130,246,.1)}
   .hero-stats{flex-direction:column;gap:20px}
-  .hero{padding:120px 0 60px}
+  .hero{padding:156px 0 60px}
+  .banner-hidden .hero{padding:120px 0 60px}
+  .activity-toast{max-width:240px;bottom:16px;left:16px}
+  .urgency-banner{font-size:.75rem;padding:7px 36px 7px 16px}
   .products-grid{grid-template-columns:1fr}
   .agency-section{padding:32px 20px}
   .comparison-table{font-size:.85rem}
@@ -168,6 +197,23 @@ footer .links a:hover{color:var(--white)}
 </style>
 </head>
 <body>
+
+<!-- URGENCY BANNER -->
+<div class="urgency-banner" id="urgencyBanner">
+  🐦 <strong>早鳥優惠</strong> · 3月20日前購買享 <strong>85折</strong> — 輸入代碼 <span class="banner-code">EARLYBIRD</span> <span class="banner-info" title="Discount applies at checkout with code EARLYBIRD">ℹ️</span>
+  <button class="banner-close" id="bannerClose" aria-label="關閉">✕</button>
+</div>
+
+<!-- ACTIVITY TOAST -->
+<div class="activity-toast" id="activityToast">
+  <div class="toast-icon">🛒</div>
+  <div class="toast-body">
+    <div class="toast-title">剛有人購買了</div>
+    <div class="toast-product" id="toastProduct">Eve AI Setup Guide</div>
+    <div class="toast-time" id="toastTime">剛剛</div>
+  </div>
+  <button class="toast-close" id="toastClose" aria-label="關閉">✕</button>
+</div>
 
 <nav>
   <div class="container">
@@ -223,6 +269,7 @@ footer .links a:hover{color:var(--white)}
           <li>PDF 即時下載，購買後即時收到</li>
         </ul>
         <p class="product-credibility">已有多位香港中小企老闆跟住呢份指南成功設定自己嘅 AI 運營團隊。</p>
+        <div class="purchase-counter"><span class="dot"></span>本週已有 <strong>5</strong> 人購買</div>
         <div class="product-price"><span class="amount">US$29</span><span class="currency">/ HK$226</span></div>
         <a href="https://buy.stripe.com/eVq7sDeUpahu2p84Sw4Vy02" class="btn btn-primary" target="_blank">立即購買 → 今日就建立你的 AI 團隊</a>
       </div>
@@ -240,6 +287,7 @@ footer .links a:hover{color:var(--white)}
           <li>1,000+ 小時生產環境迭代</li>
         </ul>
         <p class="product-credibility">Eve CEO 係我哋自己日常用緊嘅 AI 管理系統核心——呢個 Pack 就係佢嘅完整配置。</p>
+        <div class="purchase-counter"><span class="dot"></span>本週已有 <strong>7</strong> 人購買</div>
         <div class="product-price"><span class="amount">US$79</span></div>
         <a href="https://buy.stripe.com/bJeeV5aE961e1l4gBe4Vy03" class="btn btn-primary" target="_blank">立即購買 → 為你的 AI 注入 CEO 級思維</a>
       </div>
@@ -257,6 +305,7 @@ footer .links a:hover{color:var(--white)}
           <li>專為香港及亞洲市場設計</li>
         </ul>
         <p class="product-credibility">專為香港及亞洲市場電商環境設計，融入跨境貿易實戰經驗。</p>
+        <div class="purchase-counter"><span class="dot"></span>本週已有 <strong>4</strong> 人購買</div>
         <div class="product-price"><span class="amount">US$49</span></div>
         <a href="https://buy.stripe.com/5kQ28j4fL0GUfbU1Gk4Vy04" class="btn btn-primary" target="_blank">立即購買 → 用 AI 提升你的網店效率</a>
       </div>
@@ -273,6 +322,7 @@ footer .links a:hover{color:var(--white)}
           <li>內容排程同主題規劃框架</li>
         </ul>
         <p class="product-credibility">我哋自己嘅 blog 同社交媒體內容就係用呢套技能包產出——你睇到嘅文就係證明。</p>
+        <div class="purchase-counter"><span class="dot"></span>本週已有 <strong>3</strong> 人購買</div>
         <div class="product-price"><span class="amount">US$39</span></div>
         <a href="https://buy.stripe.com/7sY8wH8w14Xa6Fo5WA4Vy05" class="btn btn-primary" target="_blank">立即購買 → 解放你的內容生產力</a>
       </div>
@@ -289,6 +339,7 @@ footer .links a:hover{color:var(--white)}
           <li>針對香港客戶溝通習慣優化</li>
         </ul>
         <p class="product-credibility">廣東話口語同書面繁中都處理得好——真正為香港用家而設。</p>
+        <div class="purchase-counter"><span class="dot"></span>本週已有 <strong>6</strong> 人購買</div>
         <div class="product-price"><span class="amount">US$39</span></div>
         <a href="https://buy.stripe.com/dRm00b7rX61e0h0gBe4Vy06" class="btn btn-primary" target="_blank">立即購買 → 升級你的客戶服務體驗</a>
       </div>
@@ -532,6 +583,53 @@ document.querySelectorAll('a[href^="articles/"], a.blog-read-more').forEach(a=>{
     }
   });
 });
+
+// Urgency banner dismiss
+(function(){
+  var banner=document.getElementById('urgencyBanner');
+  var closeBtn=document.getElementById('bannerClose');
+  if(!banner||!closeBtn)return;
+  closeBtn.addEventListener('click',function(){
+    document.documentElement.classList.add('banner-hidden');
+    banner.style.display='none';
+    document.querySelector('nav').style.top='0';
+  });
+})();
+
+// Activity toast
+(function(){
+  var products=[
+    {name:'Eve AI Setup Guide',time:'剛剛'},
+    {name:'Eve Persona Pack',time:'2 分鐘前'},
+    {name:'電商營運 Skill Pack',time:'5 分鐘前'},
+    {name:'內容行銷 Skill Pack',time:'剛剛'},
+    {name:'客戶服務 Skill Pack',time:'8 分鐘前'}
+  ];
+  var toast=document.getElementById('activityToast');
+  var toastProduct=document.getElementById('toastProduct');
+  var toastTime=document.getElementById('toastTime');
+  var toastClose=document.getElementById('toastClose');
+  if(!toast)return;
+  var idx=0;
+  var hideTimer,showTimer;
+  function showToast(){
+    var p=products[idx%products.length];
+    toastProduct.textContent=p.name;
+    toastTime.textContent=p.time;
+    toast.classList.add('show');
+    hideTimer=setTimeout(function(){
+      toast.classList.remove('show');
+      idx++;
+      showTimer=setTimeout(showToast,8000);
+    },5000);
+  }
+  showTimer=setTimeout(showToast,3000);
+  toastClose.addEventListener('click',function(){
+    toast.classList.remove('show');
+    clearTimeout(hideTimer);
+    clearTimeout(showTimer);
+  });
+})();
 </script>
 
 </body>
