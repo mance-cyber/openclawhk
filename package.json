@@ -1,0 +1,10 @@
+{
+  "name": "openclawhk",
+  "version": "1.0.0",
+  "private": true,
+  "description": "OpenClaw HK - AI CEO Tools for Hong Kong",
+  "dependencies": {
+    "resend": "^3.0.0",
+    "stripe": "^14.0.0"
+  }
+}
