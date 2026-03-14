@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>How a Zero-Employee Hong Kong Startup Built Its AI Workforce — Eve AI Products</title>
+<meta name="description" content="I started openclawhk.io with zero headcount budget. Six weeks later, four AI agents are handling most of what a small ops team would cover. Here's what worked.">
+<meta property="og:title" content="How a Zero-Employee Hong Kong Startup Built Its AI Workforce">
+<meta property="og:description" content="I started openclawhk.io with zero headcount budget. Six weeks later, four AI agents are handling most of what a small ops team would cover. Here's what worked.">
+<meta property="og:url" content="https://openclawhk.io/articles/zero-employee-hk-startup">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How a Zero-Employee Hong Kong Startup Built Its AI Workforce">
+<meta name="twitter:description" content="I started openclawhk.io with zero headcount budget. Six weeks later, four AI agents are handling operations. Here's what worked.">
+<link rel="canonical" href="https://openclawhk.io/articles/zero-employee-hk-startup">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0f1e;--bg2:#111827;--bg3:#1a2332;--blue:#3b82f6;--blue2:#60a5fa;--white:#f8fafc;--gray:#94a3b8;--gray2:#64748b;--radius:12px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans TC',sans-serif;background:var(--bg);color:var(--white);line-height:1.8}
+a{color:var(--blue2);text-decoration:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,15,30,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(59,130,246,.1);padding:16px 24px;display:flex;align-items:center}
+.logo{font-size:1.25rem;font-weight:700;background:linear-gradient(135deg,var(--blue),#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.article-wrapper{max-width:720px;margin:0 auto;padding:100px 24px 80px}
+.article-back{font-size:.85rem;color:var(--gray);display:inline-flex;align-items:center;gap:4px;margin-bottom:32px;transition:color .2s}
+.article-back:hover{color:var(--white)}
+.article-date{font-size:.75rem;color:var(--blue2);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+h1{font-size:clamp(2rem,4vw,2.8rem);font-weight:800;line-height:1.2;margin-bottom:24px}
+p{color:var(--gray);font-size:1rem;margin-bottom:20px}
+h2{font-size:1.4rem;font-weight:700;color:var(--white);margin:40px 0 16px}
+blockquote{border-left:3px solid var(--blue);padding:12px 20px;margin:24px 0;background:var(--bg3);border-radius:0 var(--radius) var(--radius) 0}
+blockquote p{color:var(--white);font-style:italic;margin-bottom:0}
+strong{color:var(--white)}
+footer{padding:40px 24px;border-top:1px solid rgba(255,255,255,.06);text-align:center}
+footer p{font-size:.85rem;color:var(--gray2)}
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="logo">🤖 Eve AI Products</a>
+</nav>
+<article class="article-wrapper">
+  <a href="../index.html#blog" class="article-back">← Back to articles</a>
+  <div class="article-date">March 14, 2026</div>
+  <h1>How a Zero-Employee Hong Kong Startup Built Its AI Workforce (And What We Learned)</h1>
+  <p><em>First published on openclawhk.io. Cross-posted for the AI tools community.</em></p>
+
+  <p>I started openclawhk.io with a simple constraint: no headcount budget. Not "we're lean" — I mean zero. My first hires would have to be AI agents or nothing at all.</p>
+
+  <p>Six weeks later, the site is live, content is publishing, and four agents are handling most of what a small ops team would cover. This is what I built, what actually worked, and what still needs a human in the loop.</p>
+
+  <h2>Why Agents Instead of Tools</h2>
+
+  <p>Most AI tools are point solutions — you prompt them, they output, you move on. That's fine for one-off tasks. But running a business isn't a series of one-off tasks. It's a continuous system with interdependencies, handoffs, and things that need to happen on schedule without you watching.</p>
+
+  <p>I wanted agents that could own work — check a task queue, do the job, report back, and escalate when stuck. The difference between "AI tool" and "AI employee" is accountability. A tool doesn't tell you when it's blocked. An agent does.</p>
+
+  <p>OpenClaw gave me the structure: defined roles, monthly budgets, reporting lines, and an issue tracker (Paperclip) the agents actually use. It's closer to HR software than a prompt interface.</p>
+
+  <h2>The Org Chart</h2>
+
+  <p>Four agents, each with a title, a manager, and a defined scope:</p>
+
+  <p>
+    <strong>Eve</strong> (CEO) — Coordinates strategy, creates and delegates tasks, reviews deliverables, escalates to me only for final approvals<br>
+    <strong>Scout</strong> (Market Research) — Competitor analysis, keyword research, market sizing, community monitoring<br>
+    <strong>Code</strong> (Engineering) — Website maintenance, automation scripts, tooling<br>
+    <strong>Content</strong> (Content Creator) — Blog posts, product copy, social media, localization for HK and Chinese markets
+  </p>
+
+  <p>Eve is the hub. She doesn't execute most work — she decides what needs doing and delegates it. Every few hours she runs a heartbeat: reviews the task queue, checks agent statuses and budgets, creates new issues based on strategic priorities, and posts updates in our shared issue tracker.</p>
+
+  <blockquote>
+    <p>"Scout has completed the competitor analysis. Key finding: no other HK-based AI agent product is targeting SMEs under HK$5,000. I've created a subtask for Content to draft the positioning copy. Assigning now."</p>
+  </blockquote>
+
+  <p>That's an actual excerpt from Eve's issue comment. She's writing for an audit trail, not for conversation. Every action is logged.</p>
+
+  <h2>Three Things That Worked Better Than Expected</h2>
+
+  <p><strong>1. Market research at scale.</strong></p>
+  <p>I gave Scout a brief: map the Hong Kong SME AI tools market. Within one session, she had pulled competitor pricing from 12 directories, summarized 40+ community posts from relevant Reddit and Facebook groups, and flagged three specific gaps in the market. The output went directly into a structured report that Eve used to set product priorities.</p>
+  <p>A human researcher would have taken a week. Scout ran it in a few heartbeats over 24 hours.</p>
+
+  <p><strong>2. Content localization without hand-holding.</strong></p>
+  <p>I asked Content to write product descriptions for the Hong Kong market. I expected generic Cantonese translations. What I got were copy variants that referenced local business concerns — MPF, landlord negotiations, limited hiring budgets — things that resonate with HK SME owners specifically. Content had pulled from research Scout had already filed in the issue tracker.</p>
+  <p>The agents shared context through Paperclip comments. I didn't have to brief Content separately.</p>
+
+  <p><strong>3. Escalation discipline.</strong></p>
+  <p>Every agent is built to get blocked rather than guess. When Code hit a dependency conflict in the website deployment script, she didn't try to brute-force it. She posted a detailed blocked comment:</p>
+
+  <blockquote>
+    <p>"Deployment failing on Node version mismatch. Issue requires human decision: upgrade Node to 20.x (potential breaking changes to existing scripts) or pin at 18.x (limits future tooling). Escalating to Eve."</p>
+  </blockquote>
+
+  <p>Eve reviewed, made the call (pin at 18 for now), and Code completed the task in the next heartbeat. The whole loop took under an hour with zero messages from me.</p>
+
+  <h2>Three Things That Still Need a Human</h2>
+
+  <p><strong>1. External account actions.</strong> Browser-based form submissions, email verifications, anything that requires a logged-in human identity — agents can't do these reliably. We hit this wall with directory listings (BetaList, Product Hunt). The agent researched the submission requirements and pre-filled everything, but the actual submit button requires a human.</p>
+
+  <p><strong>2. Final commercial decisions.</strong> Pricing, partnership terms, anything with financial consequences above a threshold. Eve surfaces the options with research attached, but I make the call. This isn't a limitation — it's intentional.</p>
+
+  <p><strong>3. Nuanced client communication.</strong> Agents can draft outreach. They can't read between the lines of a reply that's technically positive but clearly hesitant. Human judgment still runs the relationship layer.</p>
+
+  <h2>The Budget Reality</h2>
+
+  <p>Each agent has a monthly spend cap. Eve is at 5,000 HKD equivalent, Code at 3,000, Content and Scout at 1,500-2,000 each. When an agent hits 80% of budget, it auto-pauses non-critical tasks. At 100%, it stops.</p>
+
+  <p>This keeps costs predictable — something you lose immediately if you're just firing off unlimited API calls. The discipline of budget constraints also improves output quality. Agents prioritize. They don't pad work because they're metered.</p>
+
+  <p>Total monthly infrastructure (agents + Paperclip + hosting): under HKD 1,000 during our first month.</p>
+
+  <h2>What This Is and Isn't</h2>
+
+  <p>This setup doesn't replace a real team for complex, creative, or client-facing work. What it does is handle the operational surface area that otherwise consumes founder time before you have funding to hire.</p>
+
+  <p>Research, drafting, scheduling, status tracking, basic coding tasks — these are now agent-owned. I review and approve. The output is good enough that I rarely push back more than once.</p>
+
+  <p>If you're building something in Hong Kong or want to test agent operations for your own SME, <a href="https://openclawhk.io">openclawhk.io</a> has the skill packs we use available as licensed products. You can install Eve's coordination logic, Scout's research playbooks, or Content's localization workflows into your own OpenClaw setup.</p>
+
+  <p>The system works. The constraint was the point.</p>
+
+  <p style="margin-top:40px"><a href="../index.html" style="font-weight:600">← Back to Eve AI Products</a></p>
+</article>
+<footer>
+  <p>© 2026 Mercury Production Limited. All rights reserved. | <a href="https://openclawhk.io">openclawhk.io</a></p>
+</footer>
+</body>
+</html>
