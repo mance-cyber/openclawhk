@@ -742,13 +742,13 @@ document.querySelectorAll('a[href^="articles/"], a.blog-read-more').forEach(a=>{
   });
 })();
 
-// Lead capture form — GA4 tracking + success state
+// Lead capture form — AJAX submit + success state
 (function(){
   var form = document.getElementById('leadForm');
   var successEl = document.getElementById('formSuccess');
   if(!form) return;
   form.addEventListener('submit', function(e){
-    // GA4 event
+    e.preventDefault();
     if(typeof gtag === 'function'){
       gtag('event', 'lead_capture', {
         event_category: 'lead_magnet',
@@ -756,23 +756,51 @@ document.querySelectorAll('a[href^="articles/"], a.blog-read-more').forEach(a=>{
         page_location: window.location.href
       });
     }
-    // Show success message after brief delay (FormSubmit redirects, but show inline first)
-    // If user has JS-only flow preference, we can show success before submit
-    // FormSubmit will handle the actual email + redirect to PDF
+    var btn = form.querySelector('button[type="submit"]');
+    btn.textContent = '提交中…';
+    btn.disabled = true;
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: {Accept: 'application/json'}
+    }).then(function(){
+      form.style.display = 'none';
+      if(successEl) successEl.style.display = 'block';
+    }).catch(function(){
+      btn.textContent = '免費下載 →';
+      btn.disabled = false;
+    });
   });
 })();
 
-// Agency inquiry form
+// Agency inquiry form — AJAX submit + success state
 (function(){
   var agencyForm = document.getElementById('agencyInquiryForm');
+  var successDiv = document.getElementById('agencyFormSuccess');
   if(!agencyForm) return;
   agencyForm.addEventListener('submit', function(e){
+    e.preventDefault();
     if(typeof gtag === 'function'){
       gtag('event', 'agency_inquiry', {
         event_category: 'agency',
         plan: document.getElementById('agencyPlan').value || 'unspecified'
       });
     }
+    var btn = agencyForm.querySelector('button[type="submit"]');
+    btn.textContent = '提交中…';
+    btn.disabled = true;
+    fetch(agencyForm.action, {
+      method: 'POST',
+      body: new FormData(agencyForm),
+      headers: {Accept: 'application/json'}
+    }).then(function(){
+      agencyForm.style.display = 'none';
+      if(successDiv) successDiv.style.display = 'block';
+    }).catch(function(){
+      btn.textContent = '立即預約免費演示 →';
+      btn.disabled = false;
+      alert('提交失敗，請直接 WhatsApp: +852 9XXX XXXX 或 Email: manceli@m-pro.com.hk');
+    });
   });
 })();
 
