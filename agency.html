@@ -351,6 +351,81 @@ footer a{color:var(--blue2)}
   </div>
 </section>
 
+<!-- AI COST CALCULATOR -->
+<section id="calculator" style="padding:80px 0;background:var(--bg2)">
+  <div class="container" style="max-width:760px">
+    <div class="section-label" style="text-align:center">計算工具</div>
+    <h2 class="section-title" style="text-align:center">AI 員工節省計算器</h2>
+    <p style="text-align:center;color:var(--gray);margin-bottom:40px">輸入你的情況，即時計算 AI 員工可以為你節省幾多</p>
+
+    <div style="background:var(--bg3);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:36px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px">
+        <div>
+          <label style="display:block;font-size:.88rem;color:var(--gray);margin-bottom:8px;font-weight:500">處理重複工作的員工人數</label>
+          <div style="display:flex;align-items:center;gap:8px">
+            <input type="range" id="calc-staff" min="1" max="10" value="2" style="flex:1;accent-color:var(--blue)" oninput="calcUpdate()">
+            <span id="calc-staff-val" style="min-width:28px;text-align:right;font-weight:700;color:var(--white)">2</span>
+          </div>
+        </div>
+        <div>
+          <label style="display:block;font-size:.88rem;color:var(--gray);margin-bottom:8px;font-weight:500">平均月薪 (HKD)</label>
+          <div style="display:flex;align-items:center;gap:8px">
+            <input type="range" id="calc-salary" min="12000" max="30000" step="1000" value="16000" style="flex:1;accent-color:var(--blue)" oninput="calcUpdate()">
+            <span id="calc-salary-val" style="min-width:56px;text-align:right;font-weight:700;color:var(--white)">$16,000</span>
+          </div>
+        </div>
+        <div>
+          <label style="display:block;font-size:.88rem;color:var(--gray);margin-bottom:8px;font-weight:500">每人每日花在重複工作的時間</label>
+          <div style="display:flex;align-items:center;gap:8px">
+            <input type="range" id="calc-hours" min="1" max="8" value="3" style="flex:1;accent-color:var(--blue)" oninput="calcUpdate()">
+            <span id="calc-hours-val" style="min-width:36px;text-align:right;font-weight:700;color:var(--white)">3 小時</span>
+          </div>
+        </div>
+        <div>
+          <label style="display:block;font-size:.88rem;color:var(--gray);margin-bottom:8px;font-weight:500">業務類型</label>
+          <select id="calc-type" style="width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:10px 12px;color:var(--white);font-size:.95rem" onchange="calcUpdate()">
+            <option value="0.65">餐廳 / 飲食</option>
+            <option value="0.70">零售 / 電商</option>
+            <option value="0.60">專業服務 / 顧問</option>
+            <option value="0.75">客服 / Call Centre</option>
+            <option value="0.65">其他中小企</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div style="background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(6,182,212,.07));border:1px solid rgba(59,130,246,.2);border-radius:12px;padding:28px;margin-bottom:24px">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center">
+          <div>
+            <div style="font-size:.78rem;color:var(--gray);margin-bottom:6px">現時每月人工成本</div>
+            <div id="res-current" style="font-size:1.6rem;font-weight:800;color:var(--white)">HK$32,000</div>
+          </div>
+          <div>
+            <div style="font-size:.78rem;color:var(--gray);margin-bottom:6px">AI 員工月費</div>
+            <div id="res-ai" style="font-size:1.6rem;font-weight:800;color:var(--cyan)">HK$500</div>
+          </div>
+          <div>
+            <div style="font-size:.78rem;color:var(--gray);margin-bottom:6px">每月節省</div>
+            <div id="res-save" style="font-size:1.6rem;font-weight:800;color:var(--green)">HK$20,800</div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08)">
+          <div style="font-size:.85rem;color:var(--gray)">年度節省</div>
+          <div id="res-annual" style="font-size:2rem;font-weight:800;color:var(--gold);margin-top:4px">HK$249,600</div>
+          <div style="font-size:.8rem;color:var(--gray);margin-top:6px">相等於每年 <span id="res-months" style="color:var(--white);font-weight:600">15.6</span> 個月員工工資</div>
+        </div>
+      </div>
+
+      <div style="text-align:center">
+        <a href="#inquiry" class="btn" style="display:inline-block;background:linear-gradient(135deg,var(--blue),var(--cyan));color:var(--white);font-weight:700;padding:14px 32px;border-radius:10px;font-size:1rem" onclick="document.getElementById('inquiry').scrollIntoView({behavior:'smooth'});return false;">
+          節省 <span id="cta-save">HK$20,800</span>/月 — 立即諮詢 →
+        </a>
+        <p style="font-size:.8rem;color:var(--gray);margin-top:12px">免費 15 分鐘諮詢 · 無需信用卡</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="container">
     <p><a href="/">Eve AI Products</a> by Mercury Production Limited</p>
@@ -385,6 +460,30 @@ document.getElementById('agencyForm').addEventListener('submit',function(e){
     document.getElementById('agencyForm').submit();
   });
 });
+
+// AI Cost Calculator
+function calcUpdate(){
+  var staff=parseInt(document.getElementById('calc-staff').value);
+  var salary=parseInt(document.getElementById('calc-salary').value);
+  var hours=parseInt(document.getElementById('calc-hours').value);
+  var rate=parseFloat(document.getElementById('calc-type').value);
+  document.getElementById('calc-staff-val').textContent=staff;
+  document.getElementById('calc-salary-val').textContent='$'+salary.toLocaleString();
+  document.getElementById('calc-hours-val').textContent=hours+' 小時';
+  var totalSalary=staff*salary;
+  var aiCost=staff<=2?500:staff<=5?1000:2000;
+  var saveable=Math.round(totalSalary*rate*(hours/8));
+  var netSave=saveable-aiCost;
+  var annual=netSave*12;
+  var months=(annual/salary).toFixed(1);
+  document.getElementById('res-current').textContent='HK$'+totalSalary.toLocaleString();
+  document.getElementById('res-ai').textContent='HK$'+aiCost.toLocaleString()+'/月';
+  document.getElementById('res-save').textContent='HK$'+Math.max(0,netSave).toLocaleString();
+  document.getElementById('res-annual').textContent='HK$'+Math.max(0,annual).toLocaleString();
+  document.getElementById('res-months').textContent=months;
+  document.getElementById('cta-save').textContent='HK$'+Math.max(0,netSave).toLocaleString();
+}
+calcUpdate();
 
 // Smooth scroll for #inquiry links
 document.querySelectorAll('a[href="#inquiry"]').forEach(a=>{
