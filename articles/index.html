@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 自動化文章大全 — 香港中小企實用指南 | openclawhk.io</title>
+<meta name="description" content="30+ 篇香港中小企 AI 自動化實用文章。涵蓋餐廳、零售、診所、律師行、美容院等各行各業 AI 應用指南。">
+<meta property="og:title" content="AI 自動化文章大全 — 香港中小企 | openclawhk.io">
+<meta property="og:description" content="30+ 篇香港中小企 AI 自動化實用指南，按行業分類，即搵即用。">
+<meta property="og:url" content="https://openclawhk.io/articles/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0f1e;--bg2:#111827;--bg3:#1a2332;--blue:#3b82f6;--blue2:#60a5fa;--cyan:#06b6d4;--white:#f8fafc;--gray:#94a3b8;--gray2:#64748b;--green:#10b981;--purple:#8b5cf6;--gold:#f59e0b;--radius:12px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans TC',sans-serif;background:var(--bg);color:var(--white);line-height:1.7}
+a{color:var(--blue2);text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+nav{background:rgba(10,15,30,.95);border-bottom:1px solid rgba(59,130,246,.1);padding:16px 0;position:sticky;top:0;z-index:100}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:1.2rem;font-weight:700;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero{padding:60px 0 40px;text-align:center}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:12px}
+.hero p{color:var(--gray);max-width:600px;margin:0 auto 24px}
+.hero-count{display:inline-block;padding:6px 16px;border-radius:20px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);color:var(--blue2);font-size:.88rem}
+.cat-filter{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:32px 0}
+.cat-btn{padding:7px 18px;border-radius:20px;font-size:.85rem;cursor:pointer;border:1px solid rgba(255,255,255,.1);background:transparent;color:var(--gray);transition:all .2s;font-family:inherit}
+.cat-btn:hover,.cat-btn.active{background:rgba(59,130,246,.15);border-color:rgba(59,130,246,.4);color:var(--blue2)}
+.articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;padding-bottom:80px}
+.article-card{background:var(--bg3);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:24px;transition:all .3s;display:flex;flex-direction:column}
+.article-card:hover{transform:translateY(-3px);border-color:rgba(59,130,246,.3);box-shadow:0 8px 32px rgba(0,0,0,.3)}
+.article-card[data-hidden="true"]{display:none}
+.card-cat{font-size:.72rem;text-transform:uppercase;letter-spacing:2px;color:var(--blue2);margin-bottom:10px;font-weight:600}
+.card-title{font-size:1rem;font-weight:700;line-height:1.4;margin-bottom:10px;color:var(--white)}
+.card-excerpt{font-size:.85rem;color:var(--gray);line-height:1.6;flex:1;margin-bottom:16px}
+.card-link{font-size:.85rem;color:var(--blue2);font-weight:500;display:inline-flex;align-items:center;gap:4px;margin-top:auto}
+.card-link:hover{gap:8px}
+.cta-section{background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(139,92,246,.07));border:1px solid rgba(59,130,246,.15);border-radius:16px;padding:40px;text-align:center;margin:0 0 60px}
+.cta-section h2{font-size:1.5rem;font-weight:700;margin-bottom:10px}
+.cta-section p{color:var(--gray);margin-bottom:24px}
+.btn{display:inline-block;padding:12px 28px;border-radius:8px;font-weight:600;font-size:.95rem;transition:all .2s}
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(59,130,246,.3);color:#fff}
+.btn-outline{border:1px solid rgba(59,130,246,.4);color:var(--blue2);margin-left:12px}
+.btn-outline:hover{background:rgba(59,130,246,.1);color:var(--blue2)}
+footer{border-top:1px solid rgba(255,255,255,.06);padding:28px 0;text-align:center;color:var(--gray2);font-size:.85rem}
+footer a{color:var(--blue2)}
+@media(max-width:600px){.cat-filter{gap:6px}.articles-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <a href="/" class="logo">Eve AI Products</a>
+    <a href="/agency.html" style="font-size:.9rem;color:var(--gray)">Agency 服務 →</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <h1>香港中小企 AI 自動化<br>實用指南</h1>
+    <p>按行業分類，30+ 篇實戰文章。搵你個行業，即睇即用。</p>
+    <span class="hero-count">📚 30+ 篇文章 · 持續更新</span>
+  </div>
+</section>
+
+<div class="container">
+  <div class="cat-filter">
+    <button class="cat-btn active" onclick="filterCat('all')">全部</button>
+    <button class="cat-btn" onclick="filterCat('餐飲')">🍜 餐飲</button>
+    <button class="cat-btn" onclick="filterCat('零售')">🛒 零售/電商</button>
+    <button class="cat-btn" onclick="filterCat('專業服務')">⚖️ 專業服務</button>
+    <button class="cat-btn" onclick="filterCat('健康美容')">💆 健康/美容</button>
+    <button class="cat-btn" onclick="filterCat('教育')">📚 教育</button>
+    <button class="cat-btn" onclick="filterCat('物業')">🏠 物業/裝修</button>
+    <button class="cat-btn" onclick="filterCat('科技')">💻 科技/AI</button>
+    <button class="cat-btn" onclick="filterCat('入門')">🚀 入門指南</button>
+  </div>
+
+  <div class="articles-grid" id="grid">
+
+    <!-- 餐飲 -->
+    <div class="article-card" data-cat="餐飲">
+      <div class="card-cat">🍜 餐飲</div>
+      <div class="card-title">餐廳老闆點用 AI 自動化：節省 50% 重複工作時間</div>
+      <div class="card-excerpt">訂座確認、客服回覆、外賣平台管理 — AI 幫你全包辦，讓你專注廚藝同服務。</div>
+      <a href="restaurant-ai-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <!-- 零售/電商 -->
+    <div class="article-card" data-cat="零售">
+      <div class="card-cat">🛒 零售/電商</div>
+      <div class="card-title">電商老闆必讀：AI 自動化如何節省 40% 營運時間</div>
+      <div class="card-excerpt">實測數據分享。用 AI Skill Pack 自動監測競品、生成產品文案、分析銷售趨勢，一個月節省超過 60 小時人工。</div>
+      <a href="ecommerce-ai-automation.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <div class="article-card" data-cat="零售">
+      <div class="card-cat">🛒 零售/電商</div>
+      <div class="card-title">零售門市 AI 自動化：收銀、庫存、WhatsApp 客服全搞掂</div>
+      <div class="card-excerpt">香港零售業寒冬下，AI 幫你降成本、提效率，同大型連鎖店競爭。</div>
+      <a href="retail-shop-ai-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <!-- 專業服務 -->
+    <div class="article-card" data-cat="專業服務">
+      <div class="card-cat">⚖️ 專業服務</div>
+      <div class="card-title">律師行 AI 自動化：文件整理、客戶跟進、法律研究助手</div>
+      <div class="card-excerpt">香港律師行點用 AI 節省行政時間，讓律師專注高價值法律工作。</div>
+      <a href="law-firm-ai-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <div class="article-card" data-cat="專業服務">
+      <div class="card-cat">⚖️ 專業服務</div>
+      <div class="card-title">會計師行 AI 自動化：發票處理、報稅提醒、客戶溝通</div>
+      <div class="card-excerpt">香港會計師行用 AI 處理重複行政工作，每月節省 40+ 小時人工成本。</div>
+      <a href="accounting-firm-ai-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <div class="article-card" data-cat="專業服務">
+      <div class="card-cat">⚖️ 專業服務</div>
+      <div class="card-title">保險經紀 AI 自動化：客戶跟進、理賠提醒、條款比較</div>
+      <div class="card-excerpt">香港保險經紀用 AI 管理客戶關係，提升成交率同客戶滿意度。</div>
+      <a href="insurance-broker-ai-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <div class="article-card" data-cat="專業服務">
+      <div class="card-cat">⚖️ 專業服務</div>
+      <div class="card-title">財務顧問 AI 自動化：市場監測、客戶報告、合規文件</div>
+      <div class="card-excerpt">香港財務顧問用 AI 自動生成市場報告、監測客戶組合，節省分析時間。</div>
+      <a href="financial-advisor-ai-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <div class="article-card" data-cat="專業服務">
+      <div class="card-cat">⚖️ 專業服務</div>
+      <div class="card-title">香港 AI 顧問入門：幫客戶實施 AI 自動化的完整指南</div>
+      <div class="card-excerpt">想成為 AI 顧問？從零開始建立你的 AI 諮詢服務，幫香港中小企轉型。</div>
+      <a href="ai-consultant-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <!-- 健康/美容 -->
+    <div class="article-card" data-cat="健康美容">
+      <div class="card-cat">💆 健康/美容</div>
+      <div class="card-title">私家診所 AI 自動化：預約管理、病人跟進、藥物提醒</div>
+      <div class="card-excerpt">香港私家診所用 AI 管理預約、發送藥物提醒，提升病人體驗同診所效率。</div>
+      <a href="clinic-ai-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <div class="article-card" data-cat="健康美容">
+      <div class="card-cat">💆 健康/美容</div>
+      <div class="card-title">牙科診所 AI 自動化：預約提醒、治療跟進、保險申報</div>
+      <div class="card-excerpt">香港牙科診所 AI 化實戰：減少爽約率 30%，提升病人回診率。</div>
+      <a href="dental-clinic-ai-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <div class="article-card" data-cat="健康美容">
+      <div class="card-cat">💆 健康/美容</div>
+      <div class="card-title">美容院 AI 自動化：預約提醒、客戶跟進、產品推薦</div>
+      <div class="card-excerpt">香港美容院用 AI 管理客戶關係，提升回頭率同平均消費額。</div>
+      <a href="beauty-salon-ai-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <div class="article-card" data-cat="健康美容">
+      <div class="card-cat">💆 健康/美容</div>
+      <div class="card-title">健身中心 AI 自動化：會員管理、課程提醒、教練排期</div>
+      <div class="card-excerpt">香港健身中心用 AI 管理會員、自動發送續費提醒，提升會員留存率。</div>
+      <a href="fitness-centre-ai-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <!-- 教育 -->
+    <div class="article-card" data-cat="教育">
+      <div class="card-cat">📚 教育</div>
+      <div class="card-title">補習社 AI 自動化：排課、家長通知、成績跟進</div>
+      <div class="card-excerpt">香港補習社用 AI 管理學生進度、自動通知家長，讓老師專注教學。</div>
+      <a href="tutoring-center-ai-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <div class="article-card" data-cat="教育">
+      <div class="card-cat">📚 教育</div>
+      <div class="card-title">幼稚園/托兒所 AI 自動化：家長溝通、活動通知、入學查詢</div>
+      <div class="card-excerpt">香港幼稚園用 AI 管理家長溝通，減少行政壓力，讓老師專注照顧孩子。</div>
+      <a href="kindergarten-childcare-ai-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <!-- 物業/裝修 -->
+    <div class="article-card" data-cat="物業">
+      <div class="card-cat">🏠 物業/裝修</div>
+      <div class="card-title">地產代理 AI 自動化：盤源更新、客戶配對、睇樓安排</div>
+      <div class="card-excerpt">香港地產代理用 AI 自動化盤源管理、配對買家需求，提升成交效率。</div>
+      <a href="property-agent-ai-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <div class="article-card" data-cat="物業">
+      <div class="card-cat">🏠 物業/裝修</div>
+      <div class="card-title">裝修公司 AI 自動化：報價、工程進度、客戶溝通</div>
+      <div class="card-excerpt">香港裝修公司用 AI 管理工程進度、自動生成報價單，提升客戶信任度。</div>
+      <a href="renovation-company-ai-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <div class="article-card" data-cat="物業">
+      <div class="card-cat">🏠 物業/裝修</div>
+      <div class="card-title">汽車維修 AI 自動化：預約、零件查詢、維修進度通知</div>
+      <div class="card-excerpt">香港汽車維修店用 AI 管理預約、自動通知車主維修進度，減少投訴。</div>
+      <a href="car-repair-ai-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <!-- 科技/AI -->
+    <div class="article-card" data-cat="科技">
+      <div class="card-cat">💻 科技/AI</div>
+      <div class="card-title">WhatsApp AI 助手：香港中小企最受歡迎的自動化工具</div>
+      <div class="card-excerpt">WhatsApp 係香港最主流嘅商業通訊工具。點樣用 AI 自動化你的 WhatsApp 客服？</div>
+      <a href="whatsapp-ai-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <div class="article-card" data-cat="科技">
+      <div class="card-cat">💻 科技/AI</div>
+      <div class="card-title">AI 客服實測：香港中小企省 70% 人工費</div>
+      <div class="card-excerpt">AI 客服自動化實測：回覆速度快 10 倍、人工成本減 70%。一文睇清點幫你慳錢。</div>
+      <a href="ai-customer-service-cost-saving.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <div class="article-card" data-cat="科技">
+      <div class="card-cat">💻 科技/AI</div>
+      <div class="card-title">OpenClaw vs 請人：香港中小企如何省 80% 營運成本</div>
+      <div class="card-excerpt">請一個全職員工 vs 用 AI Skill Pack。真實成本比較，香港中小企老闆必讀。</div>
+      <a href="openclaw-vs-hiring.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <div class="article-card" data-cat="科技">
+      <div class="card-cat">💻 科技/AI</div>
+      <div class="card-title">2026年香港企業必備 AI 工具清單</div>
+      <div class="card-excerpt">從客服自動化到內容創作，涵蓋中小企最實用的 AI 工具推薦，附實際費用及香港適用性評分。</div>
+      <a href="hk-ai-tools-2026.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <div class="article-card" data-cat="科技">
+      <div class="card-cat">💻 科技/AI</div>
+      <div class="card-title">IT 支援公司 AI 自動化：工單管理、遠程診斷、客戶報告</div>
+      <div class="card-excerpt">香港 IT 支援公司用 AI 管理工單、自動化報告生成，提升服務質素。</div>
+      <a href="it-support-ai-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <!-- 物流/服務 -->
+    <div class="article-card" data-cat="專業服務">
+      <div class="card-cat">🚢 物流</div>
+      <div class="card-title">貨運代理 AI 自動化：報關、追蹤、客戶溝通全自動</div>
+      <div class="card-excerpt">香港貨代用 AI 管理貨物追蹤、自動發送狀態更新，提升客戶服務效率。</div>
+      <a href="freight-forwarder-ai-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <div class="article-card" data-cat="專業服務">
+      <div class="card-cat">🏨 酒店/婚禮</div>
+      <div class="card-title">酒店/民宿 AI 自動化：訂房管理、入住體驗、評價跟進</div>
+      <div class="card-excerpt">香港酒店民宿用 AI 管理訂房、自動發送入住指南，提升旅客體驗。</div>
+      <a href="hotel-guesthouse-ai-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <div class="article-card" data-cat="專業服務">
+      <div class="card-cat">💍 婚禮</div>
+      <div class="card-title">婚禮策劃 AI 自動化：供應商協調、時間表管理、客戶跟進</div>
+      <div class="card-excerpt">香港婚禮策劃師用 AI 管理複雜的供應商協調，讓新人享受無壓力婚禮籌備。</div>
+      <a href="wedding-planner-ai-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <!-- 入門 -->
+    <div class="article-card" data-cat="入門">
+      <div class="card-cat">🚀 入門指南</div>
+      <div class="card-title">5 分鐘搞定 OpenClaw：快速入門指南</div>
+      <div class="card-excerpt">從零開始安裝 OpenClaw，配置 Eve Persona，連接 Telegram — 整個過程只需 5 分鐘。</div>
+      <a href="openclaw-setup-5-minutes.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <div class="article-card" data-cat="入門">
+      <div class="card-cat">🚀 入門指南</div>
+      <div class="card-title">為什麼你的 AI 助手需要原生中文？</div>
+      <div class="card-excerpt">翻譯和原生的差別，不只是語言。用英文 prompt 驅動的中文 AI，永遠無法真正理解廣東話語境。</div>
+      <a href="why-chinese-ai-matters.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <div class="article-card" data-cat="入門">
+      <div class="card-cat">🚀 入門指南</div>
+      <div class="card-title">零員工香港創業：用 AI 代替整個運營團隊</div>
+      <div class="card-excerpt">I started openclawhk.io with zero headcount budget. Six weeks later, four AI agents are handling most ops work.</div>
+      <a href="zero-employee-hk-startup.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <div class="article-card" data-cat="入門">
+      <div class="card-cat">🚀 入門指南</div>
+      <div class="card-title">用 AI CEO 管理你的副業：從零到第一筆收入</div>
+      <div class="card-excerpt">唔請人、唔外包，用 AI CEO 幫你由諗副業點起步，到完成第一筆交易。</div>
+      <a href="ai-ceo-side-hustle.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+    <div class="article-card" data-cat="入門">
+      <div class="card-cat">🚀 入門指南</div>
+      <div class="card-title">香港 AI CEO：打造零員工公司的完整藍圖</div>
+      <div class="card-excerpt">用 AI 代替傳統員工，建立自主運行的香港公司。Eve AI 系統完整解析。</div>
+      <a href="ai-ceo-hong-kong.html" class="card-link">閱讀全文 →</a>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>唔想自己動手？</h2>
+    <p>我哋幫你量身部署 AI 員工系統。Starter HK$500 安裝費起，全程包辦。</p>
+    <a href="/agency.html" class="btn btn-primary">了解 Agency 服務</a>
+    <a href="/" class="btn btn-outline">查看產品</a>
+  </div>
+</div>
+
+<footer>
+  <p><a href="/">Eve AI Products</a> by Mercury Production Limited &nbsp;·&nbsp; <a href="/agency.html">Agency 服務</a> &nbsp;·&nbsp; <a href="mailto:manceli@m-pro.com.hk">聯絡我們</a></p>
+</footer>
+
+<script>
+function filterCat(cat){
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.article-card').forEach(c=>{
+    c.dataset.hidden = (cat==='all'||c.dataset.cat===cat) ? 'false' : 'true';
+  });
+}
+</script>
+</body>
+</html>
