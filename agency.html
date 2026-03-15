@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenClaw AI Agency 服務 — 香港中小企 AI 員工系統 | openclawhk.io</title>
+<meta name="description" content="唔想自己動手？OpenClaw HK Agency 幫你量身定制 AI 員工系統。Starter HK$500起，從需求分析到部署上線，全程包辦。">
+<meta property="og:title" content="OpenClaw AI Agency — 香港中小企 AI 員工系統">
+<meta property="og:description" content="唔想自己動手？Starter HK$500安裝費起。2個AI員工、客服自動化、社媒排程。預約免費15分鐘演示。">
+<meta property="og:url" content="https://openclawhk.io/agency.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_HK">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "OpenClaw AI Agency 服務",
+  "description": "香港中小企 AI 員工系統部署服務",
+  "provider": {"@type": "Organization", "name": "Mercury Production Limited"},
+  "areaServed": "HK",
+  "offers": [
+    {"@type": "Offer", "name": "Starter 套餐", "price": "500", "priceCurrency": "HKD"},
+    {"@type": "Offer", "name": "Growth 套餐", "price": "1000", "priceCurrency": "HKD"},
+    {"@type": "Offer", "name": "Enterprise 方案", "price": "2000", "priceCurrency": "HKD"}
+  ]
+}
+</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0f1e;--bg2:#111827;--bg3:#1a2332;--blue:#3b82f6;--blue2:#60a5fa;--cyan:#06b6d4;--white:#f8fafc;--gray:#94a3b8;--gray2:#64748b;--green:#10b981;--purple:#8b5cf6;--gold:#f59e0b;--radius:12px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans TC',sans-serif;background:var(--bg);color:var(--white);line-height:1.7;overflow-x:hidden}
+a{color:var(--blue2);text-decoration:none}
+.container{max-width:900px;margin:0 auto;padding:0 24px}
+nav{background:rgba(10,15,30,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(59,130,246,.1);padding:16px 0;position:sticky;top:0;z-index:100}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:1.2rem;font-weight:700;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-back{font-size:.9rem;color:var(--gray)}
+.nav-back:hover{color:var(--white)}
+
+/* Hero */
+.hero{padding:80px 0 60px;text-align:center}
+.hero-badge{display:inline-block;padding:6px 16px;border-radius:20px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);color:var(--blue2);font-size:.85rem;margin-bottom:20px}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;line-height:1.2;margin-bottom:16px}
+.hero h1 .grad{background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:1.1rem;color:var(--gray);max-width:600px;margin:0 auto 32px}
+.hero-stats{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-top:32px;padding-top:32px;border-top:1px solid rgba(255,255,255,.06)}
+.stat-num{font-size:1.8rem;font-weight:800;color:var(--blue2)}
+.stat-label{font-size:.82rem;color:var(--gray2)}
+
+/* Pricing */
+.pricing{padding:60px 0}
+.section-label{text-transform:uppercase;font-size:.78rem;letter-spacing:3px;color:var(--blue2);margin-bottom:10px;text-align:center}
+.section-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;text-align:center;margin-bottom:8px}
+.section-sub{color:var(--gray);text-align:center;margin-bottom:48px}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-bottom:48px}
+.plan{background:var(--bg3);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:32px 28px;position:relative}
+.plan.featured{border-color:rgba(59,130,246,.4);background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(139,92,246,.06))}
+.plan-badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:.78rem;font-weight:600;margin-bottom:16px;background:rgba(245,158,11,.12);color:var(--gold);border:1px solid rgba(245,158,11,.25)}
+.plan.featured .plan-badge{background:rgba(59,130,246,.12);color:var(--blue2);border-color:rgba(59,130,246,.3)}
+.plan h3{font-size:1.25rem;font-weight:700;margin-bottom:4px}
+.plan-price{font-size:1.8rem;font-weight:800;color:var(--blue2);margin:12px 0 4px}
+.plan-freq{color:var(--gray2);font-size:.9rem;margin-bottom:16px}
+.plan-target{font-size:.85rem;color:var(--gray);margin-bottom:20px;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:8px;border:1px solid rgba(255,255,255,.05)}
+.plan-features{list-style:none;padding:0;margin-bottom:28px}
+.plan-features li{font-size:.9rem;color:var(--gray);padding:5px 0;display:flex;align-items:flex-start;gap:8px}
+.plan-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px}
+.btn{display:inline-block;padding:12px 28px;border-radius:8px;font-weight:600;font-size:.95rem;transition:all .2s;cursor:pointer;border:none;text-align:center;width:100%;box-sizing:border-box}
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(59,130,246,.3);color:#fff}
+.btn-outline{border:1px solid rgba(59,130,246,.4);color:var(--blue2);background:transparent}
+.btn-outline:hover{background:rgba(59,130,246,.1)}
+
+/* Add-ons */
+.addons{background:var(--bg2);border-radius:16px;padding:32px;margin-bottom:48px}
+.addons h3{font-size:1.1rem;font-weight:700;margin-bottom:16px;color:var(--white)}
+.addon-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.addon-item{background:var(--bg3);border-radius:10px;padding:14px;border:1px solid rgba(255,255,255,.05)}
+.addon-item strong{display:block;font-size:.9rem;margin-bottom:4px}
+.addon-item span{font-size:.82rem;color:var(--gray2)}
+.addon-price{display:block;font-size:.88rem;color:var(--blue2);font-weight:600;margin-top:6px}
+
+/* Trust */
+.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-bottom:48px;text-align:center}
+.trust-item strong{display:block;margin-top:8px;font-size:.95rem}
+.trust-item p{font-size:.82rem;color:var(--gray2);margin-top:4px}
+
+/* Form */
+.form-section{background:var(--bg2);border-radius:20px;padding:40px;border:1px solid rgba(59,130,246,.15)}
+.form-section h2{font-size:1.6rem;font-weight:700;margin-bottom:8px;text-align:center}
+.form-section p{color:var(--gray);text-align:center;margin-bottom:28px;font-size:.95rem}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-grid .full{grid-column:1/-1}
+input,textarea,select{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:12px 16px;color:var(--white);font-size:.95rem;outline:none;font-family:inherit;transition:border-color .2s;box-sizing:border-box}
+input:focus,textarea:focus,select:focus{border-color:rgba(59,130,246,.5)}
+input::placeholder,textarea::placeholder{color:var(--gray2)}
+select option{background:var(--bg2);color:var(--white)}
+textarea{resize:vertical;min-height:100px}
+.form-submit{margin-top:6px}
+.form-submit .btn{font-size:1rem;padding:14px}
+.form-note{font-size:.8rem;color:var(--gray2);text-align:center;margin-top:10px}
+#formSuccess{display:none;text-align:center;padding:32px 0}
+#formSuccess h3{font-size:1.3rem;margin:12px 0 8px}
+
+/* FAQ */
+.faq{padding:60px 0}
+.faq-item{border-bottom:1px solid rgba(255,255,255,.06);padding:20px 0}
+.faq-q{font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;user-select:none}
+.faq-q span{font-size:1.3rem;color:var(--gray2);transition:transform .2s;flex-shrink:0}
+.faq-a{font-size:.92rem;color:var(--gray);margin-top:12px;display:none;line-height:1.7}
+.faq-item.open .faq-a{display:block}
+.faq-item.open .faq-q span{transform:rotate(45deg)}
+
+/* Footer */
+footer{border-top:1px solid rgba(255,255,255,.06);padding:32px 0;text-align:center;color:var(--gray2);font-size:.88rem}
+footer a{color:var(--blue2)}
+
+@media(max-width:640px){
+  .hero{padding:56px 0 40px}
+  .form-grid{grid-template-columns:1fr}
+  .form-grid .full{grid-column:1}
+  .hero-stats{gap:24px}
+  .form-section{padding:28px 20px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="/" class="logo">Eve AI Products</a>
+    <a href="/" class="nav-back">← 返回首頁</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">🤝 Agency 服務</div>
+    <h1>AI 員工系統<br><span class="grad">幫你全程包辦</span></h1>
+    <p>唔想自己動手？我哋幫你從零開始建立屬於你業務嘅 AI 員工團隊。從需求分析到部署上線，唔需要任何技術知識。</p>
+    <a href="#inquiry" class="btn btn-primary" style="display:inline-block;width:auto;padding:14px 36px;font-size:1rem">預約免費 15 分鐘演示</a>
+
+    <div class="hero-stats">
+      <div><div class="stat-num">HK$500</div><div class="stat-label">Starter 安裝費起</div></div>
+      <div><div class="stat-num">48h</div><div class="stat-label">查詢後回覆</div></div>
+      <div><div class="stat-num">2+</div><div class="stat-label">AI 員工立即上崗</div></div>
+      <div><div class="stat-num">🇭🇰</div><div class="stat-label">香港本地支援</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing">
+  <div class="container">
+    <div class="section-label">套餐定價</div>
+    <h2 class="section-title">選擇適合你業務的套餐</h2>
+    <p class="section-sub">所有套餐均包括初始設置、技能包安裝及持續支援</p>
+
+    <div class="plans">
+      <!-- Starter -->
+      <div class="plan">
+        <div class="plan-badge">Starter</div>
+        <h3>Starter 套餐</h3>
+        <div class="plan-price">HK$500</div>
+        <div class="plan-freq">一次性安裝費 + HK$300/月</div>
+        <div class="plan-target">適合 1–5 人小企、初創、自由職業者</div>
+        <ul class="plan-features">
+          <li>2 個 AI 員工（自選技能）</li>
+          <li>初始設置（最多 3 小時）</li>
+          <li>每月 1 次調整/優化</li>
+          <li>Email 支援（24小時內回覆）</li>
+        </ul>
+        <a href="#inquiry" class="btn btn-outline" onclick="document.getElementById('planSelect').value='starter'">查詢 Starter 套餐</a>
+      </div>
+
+      <!-- Growth -->
+      <div class="plan featured">
+        <div class="plan-badge">⭐ 最受歡迎</div>
+        <h3>Growth 套餐</h3>
+        <div class="plan-price">HK$1,000</div>
+        <div class="plan-freq">一次性安裝費 + HK$600/月</div>
+        <div class="plan-target">適合 6–20 人中型企業、零售/餐飲/電商</div>
+        <ul class="plan-features">
+          <li>5 個 AI 員工（跨部門）</li>
+          <li>初始設置（最多 6 小時）</li>
+          <li>每月 2 次調整/優化</li>
+          <li>優先 WhatsApp + Email 支援</li>
+          <li>員工培訓（1 小時 Zoom）</li>
+        </ul>
+        <a href="#inquiry" class="btn btn-primary" onclick="document.getElementById('planSelect').value='growth'">查詢 Growth 套餐</a>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="plan">
+        <div class="plan-badge">Enterprise</div>
+        <h3>Enterprise 方案</h3>
+        <div class="plan-price">HK$2,000</div>
+        <div class="plan-freq">一次性安裝費 + HK$1,500/月</div>
+        <div class="plan-target">適合 20 人以上、多部門、需定制流程</div>
+        <ul class="plan-features">
+          <li>無限 AI 員工</li>
+          <li>企業診斷 + 流程映射</li>
+          <li>定制技能包開發（最多 2 個）</li>
+          <li>專屬客戶成功經理</li>
+          <li>SLA：99% + 4小時緊急回應</li>
+        </ul>
+        <a href="#inquiry" class="btn btn-outline" onclick="document.getElementById('planSelect').value='enterprise'">聯繫 Enterprise 方案</a>
+      </div>
+    </div>
+
+    <!-- Add-ons -->
+    <div class="addons">
+      <h3>💡 增值服務（Add-ons）</h3>
+      <div class="addon-grid">
+        <div class="addon-item">
+          <strong>額外 AI 員工</strong>
+          <span>每個額外 AI 員工</span>
+          <span class="addon-price">HK$150/月</span>
+        </div>
+        <div class="addon-item">
+          <strong>定制技能包</strong>
+          <span>按業務需求開發</span>
+          <span class="addon-price">HK$800 起</span>
+        </div>
+        <div class="addon-item">
+          <strong>額外培訓</strong>
+          <span>1 小時 Zoom 培訓</span>
+          <span class="addon-price">HK$300/次</span>
+        </div>
+        <div class="addon-item">
+          <strong>緊急支援</strong>
+          <span>2 小時內回應 SLA</span>
+          <span class="addon-price">HK$200/月</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trust signals -->
+    <div class="trust">
+      <div class="trust-item">
+        <div style="font-size:1.8rem">🇭🇰</div>
+        <strong>在地支援</strong>
+        <p>香港團隊，粵語/中文溝通</p>
+      </div>
+      <div class="trust-item">
+        <div style="font-size:1.8rem">🔒</div>
+        <strong>資料唔出港</strong>
+        <p>在你自己的設備上運行</p>
+      </div>
+      <div class="trust-item">
+        <div style="font-size:1.8rem">📦</div>
+        <strong>包安裝包教學</strong>
+        <p>唔需要 IT 或技術知識</p>
+      </div>
+      <div class="trust-item">
+        <div style="font-size:1.8rem">⚡</div>
+        <strong>48小時內回覆</strong>
+        <p>查詢後即日安排跟進</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INQUIRY FORM -->
+<section id="inquiry" style="padding:0 0 80px">
+  <div class="container">
+    <div class="form-section">
+      <div id="formSuccess">
+        <div style="font-size:3rem">✅</div>
+        <h3>收到！我哋會盡快聯絡你</h3>
+        <p style="color:var(--gray)">通常 24–48 小時內以 WhatsApp 或 Email 回覆</p>
+      </div>
+      <form id="agencyForm" action="https://formsubmit.co/manceli@m-pro.com.hk" method="POST">
+        <h2>📋 預約免費 15 分鐘演示</h2>
+        <p>填寫以下資料，我哋會喺 24 小時內以 WhatsApp 或 Email 聯絡你，安排免費演示。</p>
+
+        <input type="hidden" name="_subject" value="🔥 Agency 查詢 — openclawhk.io/agency">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="source" value="openclawhk.io/agency.html">
+
+        <div class="form-grid">
+          <div>
+            <input type="text" name="姓名" placeholder="你的姓名 *" required>
+          </div>
+          <div>
+            <input type="text" name="公司名稱" placeholder="公司/業務名稱 *" required>
+          </div>
+          <div>
+            <input type="tel" name="WhatsApp" placeholder="WhatsApp 號碼 *" required>
+          </div>
+          <div>
+            <input type="email" name="電郵" placeholder="電郵地址（可選）">
+          </div>
+          <div class="full">
+            <select id="planSelect" name="感興趣套餐">
+              <option value="">感興趣的套餐（可選）</option>
+              <option value="starter">Starter — HK$500 安裝 + HK$300/月</option>
+              <option value="growth">Growth — HK$1,000 安裝 + HK$600/月 ⭐</option>
+              <option value="enterprise">Enterprise — HK$2,000 安裝 + HK$1,500/月</option>
+              <option value="unsure">唔肯定，想了解更多</option>
+            </select>
+          </div>
+          <div class="full">
+            <input type="text" name="業務性質" placeholder="你嘅業務係做咩行業？（例：零售、餐飲、電商）">
+          </div>
+          <div class="full">
+            <textarea name="需求簡述" placeholder="你最想自動化哪些工作？（例：客服回覆、社媒內容、報表整理）"></textarea>
+          </div>
+          <div class="full form-submit">
+            <button type="submit" class="btn btn-primary" id="submitBtn">立即預約免費演示 →</button>
+          </div>
+        </div>
+        <p class="form-note">🔒 資料保密，唔會分享俾第三方。預約演示完全免費，無任何購買義務。</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="section-label">常見問題</div>
+    <h2 class="section-title" style="margin-bottom:32px">有問題？睇下呢度</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">AI 員工係咩？點樣運作？<span>+</span></div>
+      <div class="faq-a">AI 員工係用 OpenClaw（開源 AI Agent 框架）建立嘅自主 AI 程式，裝喺你自己嘅電腦或服務器上運行。你可以透過 Telegram、WhatsApp 或其他平台同佢溝通，佢會自動完成分配俾佢嘅工作。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">我唔識技術，係咪適合？<span>+</span></div>
+      <div class="faq-a">完全適合！Agency 服務就係專門為唔識技術嘅老闆設計。我哋負責所有安裝、設置同測試，你只需要告訴我哋你想自動化咩工作，其他交俾我哋。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">資料係咪安全？會唔會出咗去外部？<span>+</span></div>
+      <div class="faq-a">安全。OpenClaw 係在你自己嘅設備上運行，你嘅業務資料唔會儲存喺第三方伺服器（除非你主動連接外部服務）。我哋遵從香港個人資料私隱條例（PDPO）。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">設置需要幾耐時間？<span>+</span></div>
+      <div class="faq-a">Starter 套餐通常 3–5 個工作日完成。Growth 套餐約 7–10 個工作日。包括需求分析、安裝、測試同培訓。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">月費包咩服務？<span>+</span></div>
+      <div class="faq-a">月費包括：AI 員工運行監控、每月定期調整/優化、技能包更新（有新版本時）同技術支援。如有緊急問題，我哋會係承諾時間內回覆。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">如果我唔滿意點辦？<span>+</span></div>
+      <div class="faq-a">我哋提供 14 日滿意保證。如果你喺安裝後 14 日內覺得唔合用，我哋會退還月費（不包括安裝費，因為設置工作已完成）。</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p><a href="/">Eve AI Products</a> by Mercury Production Limited</p>
+    <p style="margin-top:8px">問題？聯絡我哋：<a href="mailto:manceli@m-pro.com.hk">manceli@m-pro.com.hk</a></p>
+    <p style="margin-top:8px;color:rgba(148,163,184,.4)">© 2026 Mercury Production Limited. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// FAQ
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>q.parentElement.classList.toggle('open'));
+});
+
+// Form submit with AJAX
+document.getElementById('agencyForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var btn=document.getElementById('submitBtn');
+  btn.textContent='發送中…';
+  btn.disabled=true;
+  var data=new FormData(this);
+  fetch('https://formsubmit.co/ajax/manceli@m-pro.com.hk',{
+    method:'POST',
+    headers:{'Accept':'application/json'},
+    body:data
+  }).then(function(r){return r.json()}).then(function(){
+    document.getElementById('agencyForm').style.display='none';
+    document.getElementById('formSuccess').style.display='block';
+  }).catch(function(){
+    // fallback: submit normally
+    document.getElementById('agencyForm').removeEventListener('submit',arguments.callee);
+    document.getElementById('agencyForm').submit();
+  });
+});
+
+// Smooth scroll for #inquiry links
+document.querySelectorAll('a[href="#inquiry"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    document.querySelector('#inquiry').scrollIntoView({behavior:'smooth'});
+    setTimeout(function(){
+      var first=document.querySelector('#agencyForm input');
+      if(first) first.focus();
+    },600);
+  });
+});
+</script>
+</body>
+</html>
