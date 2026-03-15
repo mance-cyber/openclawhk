@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 節省成本計算器 — 香港中小企 AI 自動化節省估算 | openclawhk.io</title>
+<meta name="description" content="免費計算器：香港中小企導入 AI 自動化每月可節省幾多？輸入你的員工數目和月薪，即時查看 AI 節省估算。由 Eve AI 提供。">
+<meta name="keywords" content="AI 節省成本 香港, AI 自動化 中小企, 人工智能 節省人工, AI ROI 計算, 香港 AI 工具, OpenClaw 香港">
+<meta property="og:title" content="AI 節省成本計算器 — 香港中小企免費工具">
+<meta property="og:description" content="計算你的公司每月可以靠 AI 節省幾多人工成本。免費、即時、專為香港中小企設計。">
+<meta property="og:url" content="https://openclawhk.io/tools/ai-savings-calculator">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_HK">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI 節省成本計算器 — 香港中小企">
+<meta name="twitter:description" content="計算你的公司每月可節省幾多人工成本 — 免費工具">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AI 節省成本計算器",
+  "description": "香港中小企 AI 自動化節省成本計算器 — 即時估算每月可節省的人工費用",
+  "url": "https://openclawhk.io/tools/ai-savings-calculator",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "HKD"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Eve AI Products",
+    "url": "https://openclawhk.io"
+  }
+}
+</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0f1e;--bg2:#111827;--bg3:#1a2332;
+  --blue:#3b82f6;--blue2:#60a5fa;--cyan:#06b6d4;
+  --white:#f8fafc;--gray:#94a3b8;--gray2:#64748b;
+  --green:#10b981;--purple:#8b5cf6;--gold:#f59e0b;
+  --red:#ef4444;--radius:12px
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans TC',sans-serif;background:var(--bg);color:var(--white);line-height:1.7;min-height:100vh}
+a{color:var(--blue2);text-decoration:none}
+.container{max-width:860px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+nav{background:rgba(10,15,30,.95);border-bottom:1px solid rgba(59,130,246,.15);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.nav-logo{font-weight:700;font-size:1rem;color:var(--white)}
+.nav-logo span{color:var(--blue2)}
+.nav-back{font-size:.85rem;color:var(--gray);display:flex;align-items:center;gap:6px}
+.nav-back:hover{color:var(--white)}
+
+/* HERO */
+.hero{padding:60px 0 40px;text-align:center}
+.hero-badge{display:inline-block;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);border-radius:20px;padding:4px 14px;font-size:.8rem;color:var(--green);margin-bottom:20px}
+.hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.2;margin-bottom:16px}
+.hero h1 span{color:var(--blue2)}
+.hero p{font-size:1.05rem;color:var(--gray);max-width:600px;margin:0 auto}
+
+/* CALCULATOR CARD */
+.calc-card{background:var(--bg2);border:1px solid rgba(59,130,246,.15);border-radius:20px;padding:36px;margin:32px 0;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+
+/* SECTION TITLE */
+.section-title{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--blue2);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.section-title::before{content:'';display:block;width:20px;height:2px;background:var(--blue2)}
+
+/* INPUT GROUP */
+.input-group{margin-bottom:24px}
+label{display:block;font-size:.9rem;color:var(--gray);margin-bottom:8px;font-weight:500}
+label .hint{font-weight:400;color:var(--gray2);font-size:.8rem;margin-left:6px}
+input[type=range]{width:100%;-webkit-appearance:none;height:6px;border-radius:3px;background:rgba(59,130,246,.2);outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--blue);cursor:pointer;box-shadow:0 0 0 3px rgba(59,130,246,.2)}
+input[type=number]{background:var(--bg3);border:1px solid rgba(59,130,246,.2);border-radius:8px;padding:10px 14px;color:var(--white);font-size:1rem;width:140px;outline:none;-moz-appearance:textfield}
+input[type=number]:focus{border-color:var(--blue)}
+input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
+.range-labels{display:flex;justify-content:space-between;font-size:.75rem;color:var(--gray2);margin-top:4px}
+.slider-value{font-size:1.1rem;font-weight:700;color:var(--white);margin-bottom:6px}
+
+/* TASK CHECKBOXES */
+.tasks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.task-item{background:var(--bg3);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:12px 14px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:10px}
+.task-item:hover{border-color:rgba(59,130,246,.3)}
+.task-item.selected{background:rgba(59,130,246,.12);border-color:rgba(59,130,246,.4)}
+.task-check{width:18px;height:18px;border-radius:4px;border:2px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+.task-item.selected .task-check{background:var(--blue);border-color:var(--blue)}
+.task-check svg{display:none}
+.task-item.selected .task-check svg{display:block}
+.task-label{font-size:.88rem;color:var(--gray)}
+.task-item.selected .task-label{color:var(--white)}
+.task-hours{font-size:.75rem;color:var(--gray2);margin-left:auto;flex-shrink:0}
+
+/* DIVIDER */
+.divider{border:none;border-top:1px solid rgba(255,255,255,.06);margin:28px 0}
+
+/* RESULT */
+.result-section{text-align:center;padding:32px;background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(16,185,129,.08));border:1px solid rgba(59,130,246,.2);border-radius:16px}
+.result-label{font-size:.85rem;color:var(--gray);margin-bottom:8px}
+.result-amount{font-size:clamp(2.5rem,6vw,4rem);font-weight:900;background:linear-gradient(135deg,var(--blue2),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.result-period{font-size:.9rem;color:var(--gray);margin-top:4px}
+.result-breakdown{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:24px}
+.rb-item{background:rgba(0,0,0,.3);border-radius:10px;padding:14px}
+.rb-value{font-size:1.4rem;font-weight:800;color:var(--white);display:block}
+.rb-label{font-size:.75rem;color:var(--gray2);margin-top:2px}
+
+/* RESULT ACTIONS */
+.result-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:28px}
+.btn-primary{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:var(--white);padding:14px 28px;border-radius:10px;font-weight:700;font-size:.95rem;border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+.btn-primary:hover{background:linear-gradient(135deg,#1d4ed8,#1e40af);transform:translateY(-1px);box-shadow:0 8px 24px rgba(37,99,235,.3)}
+.btn-secondary{background:rgba(255,255,255,.06);color:var(--white);padding:14px 28px;border-radius:10px;font-weight:600;font-size:.95rem;border:1px solid rgba(255,255,255,.1);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+.btn-secondary:hover{background:rgba(255,255,255,.1);transform:translateY(-1px)}
+.btn-wa{background:linear-gradient(135deg,#22c55e,#16a34a);color:var(--white);padding:14px 28px;border-radius:10px;font-weight:700;font-size:.95rem;border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+.btn-wa:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(34,197,94,.3)}
+
+/* DISCLAIMER */
+.disclaimer{font-size:.78rem;color:var(--gray2);text-align:center;margin-top:16px;line-height:1.5}
+
+/* WHAT AI CAN DO */
+.examples-section{margin:48px 0}
+.examples-section h2{font-size:1.4rem;font-weight:700;margin-bottom:24px;text-align:center}
+.examples-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.example-card{background:var(--bg2);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:20px}
+.example-icon{font-size:1.5rem;margin-bottom:10px}
+.example-title{font-weight:700;font-size:.95rem;margin-bottom:6px}
+.example-desc{font-size:.83rem;color:var(--gray);line-height:1.5}
+
+/* PRODUCTS TEASER */
+.products-section{background:var(--bg2);border:1px solid rgba(59,130,246,.15);border-radius:20px;padding:36px;margin:48px 0;text-align:center}
+.products-section h2{font-size:1.5rem;font-weight:800;margin-bottom:8px}
+.products-section p{color:var(--gray);margin-bottom:28px}
+.product-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:28px}
+.pill{background:var(--bg3);border:1px solid rgba(59,130,246,.2);border-radius:8px;padding:10px 16px;font-size:.88rem}
+.pill .pill-price{color:var(--blue2);font-weight:700}
+
+/* FOOTER */
+footer{border-top:1px solid rgba(255,255,255,.06);padding:32px 24px;text-align:center}
+.footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:12px;flex-wrap:wrap}
+.footer-links a{font-size:.85rem;color:var(--gray);transition:color .2s}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{font-size:.78rem;color:var(--gray2)}
+
+/* Floating WhatsApp */
+.whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;background:#22c55e;border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(34,197,94,.4);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(34,197,94,.5)}
+.whatsapp-float svg{width:28px;height:28px;fill:white}
+
+@media(max-width:600px){
+  .hero{padding:40px 0 24px}
+  .calc-card{padding:24px 18px}
+  .result-breakdown{grid-template-columns:1fr 1fr}
+  .result-actions{flex-direction:column}
+  .btn-primary,.btn-secondary,.btn-wa{text-align:center;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Open<span>Claw</span>HK</a>
+  <a href="/" class="nav-back">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    返回主頁
+  </a>
+</nav>
+
+<div class="container">
+  <div class="hero">
+    <span class="hero-badge">🆓 免費工具</span>
+    <h1>香港中小企<br><span>AI 節省成本計算器</span></h1>
+    <p>輸入你公司基本資料，即時計算導入 AI 自動化每月可節省幾多人工費用</p>
+  </div>
+
+  <div class="calc-card">
+    <!-- STEP 1: Staff -->
+    <div class="section-title">01 員工規模</div>
+    <div class="input-group">
+      <label>員工人數 <span class="hint">（可被 AI 輔助的職位）</span></label>
+      <div class="slider-value" id="staff-display">5 人</div>
+      <input type="range" id="staff" min="1" max="50" value="5" oninput="update()">
+      <div class="range-labels"><span>1 人</span><span>25 人</span><span>50 人</span></div>
+    </div>
+    <div class="input-group">
+      <label>平均月薪 (HKD)<span class="hint">（包括强積金約 5%）</span></label>
+      <div class="slider-value" id="salary-display">$15,000</div>
+      <input type="range" id="salary" min="10000" max="50000" value="15000" step="1000" oninput="update()">
+      <div class="range-labels"><span>$10K</span><span>$30K</span><span>$50K</span></div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- STEP 2: Tasks -->
+    <div class="section-title">02 選擇可自動化的工作類別</div>
+    <div class="tasks-grid" id="tasks-grid">
+      <!-- dynamically generated -->
+    </div>
+
+    <hr class="divider">
+
+    <!-- STEP 3: AI Adoption -->
+    <div class="section-title">03 AI 取代率假設</div>
+    <div class="input-group">
+      <label>AI 可處理的工作量比例<span class="hint">（保守估算建議 30-50%）</span></label>
+      <div class="slider-value" id="adoption-display">40%</div>
+      <input type="range" id="adoption" min="10" max="80" value="40" oninput="update()">
+      <div class="range-labels"><span>保守 10%</span><span>一般 40%</span><span>激進 80%</span></div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- RESULT -->
+    <div class="result-section" id="result">
+      <div class="result-label">每月預計節省</div>
+      <div class="result-amount" id="monthly-saving">計算中…</div>
+      <div class="result-period">每月 (HKD)</div>
+      <div class="result-breakdown">
+        <div class="rb-item">
+          <span class="rb-value" id="rb-annual">—</span>
+          <div class="rb-label">每年節省 (HKD)</div>
+        </div>
+        <div class="rb-item">
+          <span class="rb-value" id="rb-tasks">—</span>
+          <div class="rb-label">已選工作類別</div>
+        </div>
+        <div class="rb-item">
+          <span class="rb-value" id="rb-roi">—</span>
+          <div class="rb-label">預計 ROI 月數</div>
+        </div>
+      </div>
+      <div class="result-actions">
+        <a href="/agency.html" class="btn-primary" onclick="gtag('event','calc_cta_agency',{value: Math.round(calcResult())})">
+          💼 了解 AI Agency 方案
+        </a>
+        <a href="https://api.whatsapp.com/send?phone=85291600789&text=你好，我剛剛用咗 AI 計算器，想了解更多 AI 自動化方案" target="_blank" class="btn-wa" onclick="gtag('event','calc_cta_whatsapp')">
+          💬 WhatsApp 免費諮詢
+        </a>
+        <a href="/#products" class="btn-secondary" onclick="gtag('event','calc_cta_products')">
+          📦 查看 AI 產品
+        </a>
+      </div>
+      <p class="disclaimer">* 以上為估算數字，實際節省視乎業務類型、流程複雜度及 AI 工具選擇而異。</p>
+    </div>
+  </div>
+
+  <!-- EXAMPLES -->
+  <div class="examples-section">
+    <h2>AI 可以做到什麼？</h2>
+    <div class="examples-grid">
+      <div class="example-card">
+        <div class="example-icon">💬</div>
+        <div class="example-title">客戶服務自動化</div>
+        <div class="example-desc">24/7 自動回答常見問題、WhatsApp 自動回覆、訂單狀態查詢 — 節省 60-80% 客服人工時</div>
+      </div>
+      <div class="example-card">
+        <div class="example-icon">✍️</div>
+        <div class="example-title">內容及文案生成</div>
+        <div class="example-desc">社交媒體帖子、產品描述、電郵草稿、廣告文案 — 10 分鐘代替 2 小時人工撰寫</div>
+      </div>
+      <div class="example-card">
+        <div class="example-icon">📊</div>
+        <div class="example-title">數據分析報告</div>
+        <div class="example-desc">自動整理銷售數據、生成週報月報、分析客戶反饋趨勢 — 節省 4-6 小時/週</div>
+      </div>
+      <div class="example-card">
+        <div class="example-icon">📧</div>
+        <div class="example-title">電郵及行政處理</div>
+        <div class="example-desc">自動分類郵件、起草回覆、會議摘要、跟進提醒 — 節省 30-50% 行政時間</div>
+      </div>
+      <div class="example-card">
+        <div class="example-icon">🛒</div>
+        <div class="example-title">電商運營支援</div>
+        <div class="example-desc">自動上架產品描述、庫存提醒、退貨處理回覆、評價回覆 — 節省 40% 運營人工</div>
+      </div>
+      <div class="example-card">
+        <div class="example-icon">🔍</div>
+        <div class="example-title">市場研究整合</div>
+        <div class="example-desc">競爭對手監測、行業趨勢摘要、客戶反饋分析 — 每月節省 8-10 小時研究時間</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <div class="products-section">
+    <h2>準備好開始了嗎？</h2>
+    <p>從 HK$229 開始，踏出你的 AI 自動化第一步</p>
+    <div class="product-pills">
+      <div class="pill">Eve AI Setup Guide <span class="pill-price">HK$229</span></div>
+      <div class="pill">Eve Persona Pack <span class="pill-price">HK$619</span></div>
+      <div class="pill">Skill Packs <span class="pill-price">HK$309-389</span></div>
+      <div class="pill">Agency 方案 <span class="pill-price">從 HK$8,000</span></div>
+    </div>
+    <a href="/#products" class="btn-primary">查看全部產品 →</a>
+  </div>
+</div>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://api.whatsapp.com/send?phone=85291600789&text=你好，我用咗 AI 計算器，想了解 AI 自動化方案" target="_blank" class="whatsapp-float" title="WhatsApp 即時查詢">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="/">主頁</a>
+      <a href="/#products">產品</a>
+      <a href="/agency.html">Agency 方案</a>
+      <a href="/articles/">AI 文章</a>
+    </div>
+    <p class="footer-copy">© 2026 Eve AI Products by Mercury Production · openclawhk.io</p>
+  </div>
+</footer>
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<script>
+// Task definitions: name, hours saved per month per person doing this task, % of staff doing this
+const TASKS = [
+  { id: 'cs',       label: '客戶服務 / 客服回覆',   hours: 40, pct: 0.4 },
+  { id: 'content',  label: '內容創作 / 社交媒體',    hours: 30, pct: 0.25 },
+  { id: 'admin',    label: '行政 / 文書 / 電郵',    hours: 35, pct: 0.6 },
+  { id: 'data',     label: '數據整理 / 報告',        hours: 25, pct: 0.3 },
+  { id: 'ecom',     label: '電商運營 / 上架',        hours: 30, pct: 0.2 },
+  { id: 'research', label: '市場研究 / 競調',        hours: 20, pct: 0.2 },
+  { id: 'sales',    label: '銷售跟進 / CRM',        hours: 20, pct: 0.3 },
+  { id: 'hr',       label: '人力資源 / 招聘初篩',    hours: 15, pct: 0.1 },
+];
+
+const selectedTasks = new Set(['cs', 'admin', 'content']);
+const AI_MONTHLY_COST = 3000; // HKD estimate for AI tools
+
+// Render task grid
+function renderTasks() {
+  const grid = document.getElementById('tasks-grid');
+  grid.innerHTML = TASKS.map(t => `
+    <div class="task-item ${selectedTasks.has(t.id) ? 'selected' : ''}" onclick="toggleTask('${t.id}')">
+      <div class="task-check">
+        <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2">
+          <path d="M2 6l3 3 5-5"/>
+        </svg>
+      </div>
+      <span class="task-label">${t.label}</span>
+      <span class="task-hours">~${t.hours}hr/月</span>
+    </div>
+  `).join('');
+}
+
+function toggleTask(id) {
+  if (selectedTasks.has(id)) {
+    if (selectedTasks.size > 1) selectedTasks.delete(id);
+  } else {
+    selectedTasks.add(id);
+  }
+  renderTasks();
+  update();
+}
+
+function calcResult() {
+  const staff = parseInt(document.getElementById('staff').value);
+  const salary = parseInt(document.getElementById('salary').value);
+  const adoption = parseInt(document.getElementById('adoption').value) / 100;
+  const hourlyRate = salary / 176; // ~22 working days × 8 hrs
+
+  let totalHoursSaved = 0;
+  for (const id of selectedTasks) {
+    const task = TASKS.find(t => t.id === id);
+    if (task) {
+      const staffDoingTask = Math.ceil(staff * task.pct);
+      totalHoursSaved += staffDoingTask * task.hours * adoption;
+    }
+  }
+  return Math.round(hourlyRate * totalHoursSaved);
+}
+
+function update() {
+  const staff = parseInt(document.getElementById('staff').value);
+  const salary = parseInt(document.getElementById('salary').value);
+  const adoption = parseInt(document.getElementById('adoption').value);
+
+  document.getElementById('staff-display').textContent = staff + ' 人';
+  document.getElementById('salary-display').textContent = '$' + salary.toLocaleString();
+  document.getElementById('adoption-display').textContent = adoption + '%';
+
+  const monthly = calcResult();
+  const annual = monthly * 12;
+  const roiMonths = monthly > 0 ? Math.ceil(AI_MONTHLY_COST / monthly) : '∞';
+
+  document.getElementById('monthly-saving').textContent = '$' + monthly.toLocaleString();
+  document.getElementById('rb-annual').textContent = '$' + annual.toLocaleString();
+  document.getElementById('rb-tasks').textContent = selectedTasks.size + ' 類';
+  document.getElementById('rb-roi').textContent = roiMonths <= 1 ? '<1 月' : roiMonths + ' 月';
+}
+
+renderTasks();
+update();
+</script>
+</body>
+</html>
