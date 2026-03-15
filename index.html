@@ -140,6 +140,8 @@ section{padding:80px 0}
 
 /* AGENCY */
 .agency-section{background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(139,92,246,.08));border:1px solid rgba(59,130,246,.15);border-radius:16px;padding:48px;text-align:center;margin-top:48px}
+#agency-form input:focus,#agency-form textarea:focus{border-color:rgba(59,130,246,.5)!important}
+#agency-form input::placeholder,#agency-form textarea::placeholder{color:var(--gray2)}
 .agency-section .badge{display:inline-block;padding:6px 16px;border-radius:20px;background:rgba(245,158,11,.15);color:var(--gold);font-size:.85rem;margin-bottom:16px;border:1px solid rgba(245,158,11,.3)}
 
 /* FAQ */
@@ -509,7 +511,7 @@ footer .links a:hover{color:var(--white)}
           <li>✓ 每月 1 次調整/優化</li>
           <li>✓ Email 支援</li>
         </ul>
-        <a href="mailto:info@openclawhk.io?subject=查詢 Starter 套餐" class="btn btn-primary" style="width:100%;text-align:center;box-sizing:border-box">立即查詢</a>
+        <a href="#agency-form" onclick="document.getElementById('agencyPlan').value='Starter套餐（HK$500安裝+HK$300/月）'" class="btn btn-primary" style="width:100%;text-align:center;box-sizing:border-box">立即查詢</a>
       </div>
 
       <!-- Growth (featured) -->
@@ -525,7 +527,7 @@ footer .links a:hover{color:var(--white)}
           <li>✓ 優先 WhatsApp + Email 支援</li>
           <li>✓ 員工培訓（1 小時 Zoom）</li>
         </ul>
-        <a href="mailto:info@openclawhk.io?subject=查詢 Growth 套餐" class="btn btn-primary" style="width:100%;text-align:center;box-sizing:border-box">立即查詢</a>
+        <a href="#agency-form" onclick="document.getElementById('agencyPlan').value='Growth套餐（HK$1,000安裝+HK$600/月）'" class="btn btn-primary" style="width:100%;text-align:center;box-sizing:border-box">立即查詢</a>
       </div>
 
       <!-- Enterprise -->
@@ -541,19 +543,40 @@ footer .links a:hover{color:var(--white)}
           <li>✓ 專屬客戶成功經理</li>
           <li>✓ SLA：99% 運行 + 4小時緊急回應</li>
         </ul>
-        <a href="mailto:info@openclawhk.io?subject=查詢 Enterprise 方案" class="btn btn-primary" style="width:100%;text-align:center;box-sizing:border-box">聯繫我們</a>
+        <a href="#agency-form" onclick="document.getElementById('agencyPlan').value='Enterprise方案（HK$2,000安裝+HK$1,500/月）'" class="btn btn-primary" style="width:100%;text-align:center;box-sizing:border-box">聯繫我們</a>
       </div>
     </div>
 
     <!-- Trust signals -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-bottom:32px;text-align:center">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-bottom:40px;text-align:center">
       <div><div style="font-size:1.5rem;margin-bottom:8px">🇭🇰</div><strong>在地支援</strong><p style="font-size:.85rem;color:var(--gray);margin-top:4px">香港團隊，中文溝通</p></div>
       <div><div style="font-size:1.5rem;margin-bottom:8px">🔒</div><strong>資料不離港</strong><p style="font-size:.85rem;color:var(--gray);margin-top:4px">在你自己嘅設備運行</p></div>
       <div><div style="font-size:1.5rem;margin-bottom:8px">📦</div><strong>包安裝包教學</strong><p style="font-size:.85rem;color:var(--gray);margin-top:4px">唔需要 IT 知識</p></div>
+      <div><div style="font-size:1.5rem;margin-bottom:8px">⚡</div><strong>48小時內回覆</strong><p style="font-size:.85rem;color:var(--gray);margin-top:4px">查詢後我們即日聯絡</p></div>
     </div>
 
-    <div style="text-align:center">
-      <a href="mailto:info@openclawhk.io?subject=預約免費演示" class="btn btn-primary">預約免費 15 分鐘演示</a>
+    <!-- AGENCY INQUIRY FORM -->
+    <div id="agency-form" style="background:var(--bg3);border:1px solid rgba(59,130,246,.25);border-radius:16px;padding:40px;max-width:600px;margin:0 auto">
+      <h3 style="font-size:1.4rem;font-weight:700;margin-bottom:8px;text-align:center">📋 預約免費 15 分鐘演示</h3>
+      <p style="color:var(--gray);font-size:.9rem;text-align:center;margin-bottom:24px">填寫表格後，我哋會喺 24 小時內以 WhatsApp 或 Email 聯絡你</p>
+      <div id="agencyFormSuccess" style="display:none;text-align:center;padding:24px">
+        <div style="font-size:2.5rem;margin-bottom:12px">✅</div>
+        <h4 style="font-size:1.2rem;margin-bottom:8px">收到！我哋會盡快聯絡你</h4>
+        <p style="color:var(--gray);font-size:.9rem">通常 24 小時內以 WhatsApp 或 Email 回覆</p>
+      </div>
+      <form id="agencyInquiryForm" action="https://formsubmit.co/manceli@m-pro.com.hk" method="POST" style="display:flex;flex-direction:column;gap:14px">
+        <input type="hidden" name="_subject" value="🔥 Agency 查詢 — openclawhk.io">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="source" value="openclawhk.io agency form">
+        <input type="text" id="agencyPlan" name="套餐" placeholder="選擇套餐（可選）" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:12px 16px;color:var(--white);font-size:.95rem;outline:none;font-family:inherit;transition:border-color .2s">
+        <input type="text" name="姓名/公司" placeholder="你的姓名 / 公司名稱 *" required style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:12px 16px;color:var(--white);font-size:.95rem;outline:none;font-family:inherit;transition:border-color .2s">
+        <input type="tel" name="WhatsApp/電話" placeholder="WhatsApp 或電話號碼 *" required style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:12px 16px;color:var(--white);font-size:.95rem;outline:none;font-family:inherit;transition:border-color .2s">
+        <input type="email" name="電郵" placeholder="電郵地址（可選）" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:12px 16px;color:var(--white);font-size:.95rem;outline:none;font-family:inherit;transition:border-color .2s">
+        <textarea name="需求簡述" placeholder="簡單描述你的業務和需求（可選）" rows="3" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:12px 16px;color:var(--white);font-size:.95rem;outline:none;font-family:inherit;resize:vertical;transition:border-color .2s"></textarea>
+        <button type="submit" class="btn btn-primary" style="font-size:1rem;padding:14px">立即預約免費演示 →</button>
+        <p style="font-size:.8rem;color:var(--gray2);text-align:center;margin-top:4px">🔒 資料保密，唔會分享俾第三方</p>
+      </form>
     </div>
   </div>
 </section>
@@ -736,6 +759,20 @@ document.querySelectorAll('a[href^="articles/"], a.blog-read-more').forEach(a=>{
     // Show success message after brief delay (FormSubmit redirects, but show inline first)
     // If user has JS-only flow preference, we can show success before submit
     // FormSubmit will handle the actual email + redirect to PDF
+  });
+})();
+
+// Agency inquiry form
+(function(){
+  var agencyForm = document.getElementById('agencyInquiryForm');
+  if(!agencyForm) return;
+  agencyForm.addEventListener('submit', function(e){
+    if(typeof gtag === 'function'){
+      gtag('event', 'agency_inquiry', {
+        event_category: 'agency',
+        plan: document.getElementById('agencyPlan').value || 'unspecified'
+      });
+    }
   });
 })();
 
