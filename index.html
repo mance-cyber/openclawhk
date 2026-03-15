@@ -252,7 +252,13 @@ footer .links a:hover{color:var(--white)}
 </head>
 <body>
 
-<nav>
+<!-- URGENCY BANNER -->
+<div id="urgencyBanner" class="urgency-banner">
+  🚀 早鳥 Launch Price · 限時優惠 — 還有 <span id="bannerCountdown" style="color:var(--gold);font-weight:700"></span> 結束 · 立即鎖定最低價
+  <button id="bannerClose" class="banner-close" aria-label="關閉">✕</button>
+</div>
+
+<nav style="top:41px">
   <div class="container">
     <div class="logo">🤖 Eve AI Products</div>
     <button class="menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
@@ -352,6 +358,7 @@ footer .links a:hover{color:var(--white)}
 
       <!-- Eve Persona -->
       <div class="product-card featured fade-in">
+        <div style="position:absolute;top:12px;right:12px;background:linear-gradient(135deg,#f59e0b,#ef4444);color:#fff;font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.5px">🔥 LAUNCH PRICE</div>
         <div class="product-icon">🤖</div>
         <h3>Eve Persona Pack</h3>
         <div class="desc">將 Eve CEO 的智慧直接裝入你的 AI Agent——即插即用。</div>
@@ -822,11 +829,29 @@ document.querySelectorAll('a[href^="articles/"], a.blog-read-more').forEach(a=>{
   });
 });
 
-// Urgency banner dismiss
+// Urgency banner dismiss + countdown
 (function(){
   var banner=document.getElementById('urgencyBanner');
   var closeBtn=document.getElementById('bannerClose');
+  var countdown=document.getElementById('bannerCountdown');
   if(!banner||!closeBtn)return;
+
+  // Countdown to 2026-03-22 00:00 HKT (UTC+8)
+  var deadline=new Date('2026-03-22T00:00:00+08:00');
+  function updateCountdown(){
+    var now=new Date();
+    var diff=deadline-now;
+    if(diff<=0){banner.style.display='none';return;}
+    var d=Math.floor(diff/86400000);
+    var h=Math.floor((diff%86400000)/3600000);
+    var m=Math.floor((diff%3600000)/60000);
+    if(countdown){
+      countdown.textContent=d>0?d+'天 '+h+'小時':h+'小時 '+m+'分鐘';
+    }
+  }
+  updateCountdown();
+  setInterval(updateCountdown,60000);
+
   closeBtn.addEventListener('click',function(){
     document.documentElement.classList.add('banner-hidden');
     banner.style.display='none';
